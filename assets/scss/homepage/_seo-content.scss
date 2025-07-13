@@ -1,0 +1,119 @@
+.seo-content {
+    padding: 72px 0 65px;
+    border-top: 1px solid #D8E2EF;
+    &__title {
+        font-size: 32px;
+        max-width: 374px;
+    }
+    &__top {
+        gap: 29px;
+    }
+    &__text-wrapper {
+        width: calc(100% - 29px - 374px);
+    }
+    &__text-toggle-content {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    &__text-toggle-content .more-text {
+        display: none;
+    }
+    &__text-toggle-content:not(.collapsed) .more-text {
+        display: inline;
+    }
+
+    &__btn {
+        cursor: pointer;
+        color: $textBlue;
+        margin-top: 30px;
+        align-items: center;
+        gap: 8px;
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+    }
+    &.active {
+        .seo-content__btn {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+
+    }
+    @media #{$screen-max} {
+        padding: 60px 0;
+        &__title {
+            font-size: 28px;
+            max-width: 315px;
+        }
+        &__top {
+            gap: 25px;
+        }
+        &__text-wrapper {
+            width: calc(100% - 25px - 315px);
+        }
+        &__text-toggle-content {
+            font-size: 16px;
+            line-height: 26px;
+        }
+        &__btn {
+            margin-top: 25px;
+        }
+    }
+    @media #{$desktop-max} {
+        padding: 50px 0;
+        &__title {
+            font-size: 26px;
+            max-width: 285px;
+        }
+        &__text-wrapper {
+            width: calc(100% - 25px - 285px);
+        }
+        &__text-toggle-content {
+            font-size: 16px;
+            line-height: 26px;
+        }
+        &__btn {
+            margin-top: 20px;
+        }
+    }
+    @media #{$laptop-max} {
+        &__top {
+            flex-direction: column;
+        }
+        &__title {
+            font-size: 25px;
+            max-width: 100%;
+        }
+        &__top {
+            gap: 16px;
+        }
+        &__text-wrapper {
+            width: 100%;
+        }
+        &__shadow {
+            position: relative;
+            &:after {
+                background: linear-gradient(270deg, rgba(247, 248, 249, 0.6) 0%, #F7F8F9 170%);
+                content: '';
+                width: 100vw;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 20px;
+            }
+        }
+        &.active {
+            .seo-content__shadow {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        &__btn {
+            margin-top: 15px;
+        }
+    }
+}

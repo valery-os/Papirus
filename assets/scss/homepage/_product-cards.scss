@@ -1,0 +1,119 @@
+.product-cards {
+    padding: 22px 0;
+    .container {
+        overflow-x: hidden;
+    }
+    &__wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__title {
+        margin: 0;
+        white-space: nowrap;
+        font-size: 32px;
+    }
+
+    &__title-line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #D9E3E8;
+    }
+
+    &__top-link {
+        white-space: nowrap;
+        text-decoration: none;
+        color: $textBlue;
+    }
+    &__list {
+        position: relative;
+        z-index: 5;
+        .product-cards-slider.swiper-is-dragging .swiper-slide *,
+        .product-cards-slider.swiper-is-dragging .swiper-slide {
+            pointer-events: none !important;
+            transition: none !important;
+            //transform: none !important;
+            box-shadow: none !important;
+            //opacity: 1 !important;
+        }
+    }
+    .product-cards-slider {
+        overflow: visible;
+        .swiper-slide {
+            width: auto;
+            flex-shrink: 0;
+            height: auto;
+        }
+    }
+    .swiper-scrollbar {
+        height: 11px;
+        background: rgb(229, 238, 251);
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-top: 12px;
+        z-index: 0;
+    }
+    .swiper-scrollbar-drag {
+        background: #D8E2EF;
+        margin: 0 2px;
+        height: 7px;
+        top: 2px;
+    }
+    &-slider {
+        &:after,
+        &:before {
+            content: '';
+            width: 40px;
+            height: 900px;
+            position: absolute;
+            display: block;
+            background: #f7f8f9;
+            top: 50%;
+            z-index: 100;
+        }
+        &:after {
+            right: 0;
+            transform: translate(100%, -50%);
+        }
+        &:before {
+            left: 0;
+            transform: translate(-100%, -50%);
+        }
+    }
+    @media #{$tablet-max} {
+        &__title {
+            font-size: 20px;
+        }
+        &__top-link {
+            font-size: 13px;
+        }
+        .swiper-scrollbar {
+            height: 5px;
+            margin-top: 9px;
+        }
+        .swiper-scrollbar-drag {
+            margin: 0 1px;
+            height: 3px;
+            top: 1px;
+        }
+    }
+    @media #{$mobile-max} {
+        &__top {
+            gap: 7px;
+        }
+    }
+    @media (max-width: 350px) {
+        &__title {
+            font-size: 18px;
+        }
+        &__top-link {
+            font-size: 12px;
+        }
+    }
+}

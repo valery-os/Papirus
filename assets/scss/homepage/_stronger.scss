@@ -1,0 +1,95 @@
+.stronger {
+    padding: 22px 0;
+    &__list {
+        background: #fff;
+        padding: 33px 80px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__item {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 70px;
+            margin-bottom: 20px;
+        }
+    }
+    &__item-line {
+        display: block;
+        height: 114px;
+        width: 1px;
+        background: #E5EEFB;
+    }
+    @media #{$screen-max} {
+        &__list {
+            padding: 25px 70px;
+        }
+        &__item {
+            img {
+                width: 60px;
+                margin-bottom: 15px;
+            }
+        }
+        &__item-line {
+            height: 100px;
+        }
+    }
+    @media #{$desktop-max} {
+        &__list {
+            padding: 25px 50px;
+        }
+    }
+    @media #{$laptop-max} {
+        &__list {
+            padding: 25px 40px;
+        }
+        &__item {
+            img {
+                width: 50px;
+                margin-bottom: 10px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+        &__item-line {
+            height: 80px;
+        }
+    }
+    @media #{$tablet-max} {
+        &__list {
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 28px;
+            padding: 30px 20px;
+            border-radius: 6px;
+        }
+        &__item {
+            width: 50%;
+            img {
+                width: 50px;
+                margin-bottom: 10px;
+            }
+            p {
+                font-size: 14px;
+            }
+            &:nth-child(1),
+            &:nth-child(5) {
+                &:before {
+                    content: '';
+                    right: 0;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 69px;
+                    background: #E5EEFB;
+                }
+            }
+        }
+        &__item-line {
+            display: none;
+        }
+    }
+}

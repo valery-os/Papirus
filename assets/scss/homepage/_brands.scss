@@ -1,0 +1,85 @@
+.brands {
+    padding: 22px 0;
+    &__content {
+        position: relative;
+    }
+    .swiper-slide {
+        background: #fff;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        img {
+            width: 155px;
+        }
+    }
+    &__btn {
+        display: none;
+    }
+    @media #{$tablet-max} {
+        .slider-button {
+            display: flex;
+        }
+    }
+    @media #{$mobile-max}  {
+        &.active {
+            .swiper-wrapper {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        .slider-button {
+            display: none;
+        }
+        .swiper-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            &:after {
+                background: linear-gradient(270deg, rgba(247, 248, 249, 0.6) 0%, #F7F8F9 170%);
+                content: '';
+                width: 100vw;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 90px;
+            }
+        }
+        .swiper-slide {
+            width: calc(50% - 4px);
+            padding: 20px 30px;
+            &:nth-child(n+7){
+                display: none;
+            }
+            img {
+                width: 100%;
+                max-width: 98px;
+            }
+        }
+        &__btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+            color: $textBlue;
+            border: 1px solid #16489F;
+            height: 44px;
+            width: 100%;
+            justify-content: center;
+            transition: .3s ease;
+            cursor: pointer;
+            &:hover {
+                color: #F7F8F9;
+                background: $textBlue;
+                path {
+                    fill: #F7F8F9
+                }
+            }
+        }
+    }
+}

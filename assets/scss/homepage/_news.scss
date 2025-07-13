@@ -1,0 +1,72 @@
+.news {
+    padding: 22px 0;
+    &__item {
+        padding: 30px 0 15px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        transition: .3s ease;
+        border: 1px solid #fff;
+        &:hover {
+            border: 1px solid #E5EEFB;
+        }
+    }
+    &__item-title {
+        padding: 0 30px 15px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.55;
+        border-bottom: 1px solid #E5EEFB;
+        color: $textBlue;
+    }
+    &__item-date {
+        padding: 15px 30px 0;
+        font-size: 15px;
+        color: #C3C3C3;
+    }
+    @media #{$screen-max} {
+        &__item {
+            padding: 25px 0 15px;
+        }
+        &__item-title {
+            padding: 0 20px 15px;
+        }
+        &__item-date {
+            padding: 15px 20px 0;
+        }
+    }
+    @media #{$desktop-max} {
+        .swiper-slide {
+            width: auto;
+        }
+        &__item {
+            width: 350px;
+        }
+    }
+    @media #{$laptop-max} {
+        &__item {
+            padding: 25px 0 15px;
+            width: 310px;
+        }
+        &__item-title {
+            padding: 0 25px 15px;
+            font-size: 15px;
+        }
+        &__item-date {
+            padding: 15px 25px 0;
+            font-size: 14px;
+        }
+    }
+    @media #{$mobile-max} {
+        &__item {
+            width: 290px;
+        }
+        &__item-title {
+            font-size: 14px;
+        }
+        &__item-date {
+            font-size: 12px;
+        }
+    }
+}

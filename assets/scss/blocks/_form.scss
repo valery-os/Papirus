@@ -1,0 +1,176 @@
+.password-wrapper {
+    position: relative;
+
+    input {
+        padding-right: 40px;
+    }
+}
+
+.auth-tab-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.form-group {
+    position: relative;
+    &.error-field {
+        input {
+            border-color: #FF5650;
+            &:focus {
+                border-color: #FF5650;
+            }
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            background: url('../img/error.svg') no-repeat center center;
+        }
+    }
+    input {
+        width: 100%;
+        font-size: 16px;
+        border: 1px solid #D8E2EF;
+        border-radius: 8px;
+        outline: none;
+        padding: 15px 20px;
+        margin-bottom: 0;
+
+        &:focus {
+            border-color: #16489F;
+        }
+
+        &:focus~label,
+        &:not(:placeholder-shown) + label {
+            font-size: 12px;
+            background: #fff;
+            top: 0px;
+        }
+    }
+
+    label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 18px;
+        padding: 0 2px;
+        background: transparent;
+        transition: 0.2s ease;
+        color: #C3C3C3;
+        pointer-events: none;
+    }
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: #555;
+        &.active {
+            path {
+                stroke: $textBlue;
+            }
+        }
+    }
+    @media #{$tablet-max} {
+        &.error-field {
+            &:before {
+                right: 17px;
+            }
+        }
+        input {
+            font-size: 15px;
+            padding: 12px 17px;
+        }
+        label {
+            left: 15px;
+        }
+    }
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 13px;
+    user-select: none;
+    position: relative;
+    padding-left: 30px;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .checkmark {
+            background-color: #fff;
+            border-color: $textBlue;
+
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    .checkmark {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border: 1px solid #D8E2EF;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 11px;
+            border: solid $textBlue;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    }
+
+    &:hover input:not(:checked) ~ .checkmark {
+        border-color: #007bff;
+    }
+    @media #{$tablet-max} {
+        padding-left: 25px;
+        font-size: 12px;
+        .checkmark {
+            height: 18px;
+            width: 18px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                display: none;
+                left: 5px;
+                top: 1px;
+                width: 4px;
+                height: 10px;
+                border: solid $textBlue;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+        }
+    }
+}

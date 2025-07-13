@@ -1,0 +1,284 @@
+.footer {
+    background: #fff;
+    padding: 82px 0 30px;
+    &__logo {
+        gap: 18px;
+        align-items: center;
+        line-height: 1;
+        color: $textBlue;
+        margin-bottom: 32px;
+        p {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        span {
+            font-size: 14px;
+        }
+        img {
+            width: 60px;
+        }
+        p, span, b {
+            line-height: inherit;
+        }
+        &-text {
+            flex-direction: column;
+        }
+    }
+    &__subtitle {
+        font-size: 14px;
+        color: #C3C3C3;
+        margin-bottom: 14px;
+        display: block;
+    }
+    &__left {
+        padding-right: 48px;
+        border-right: 1px solid #D8E2EF;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__left-bottom {
+        gap: 30px;
+    }
+    &__left-socials,
+    &__left-apps {
+        flex-direction: column;
+    }
+    &__left-apps-top {
+        flex-direction: column;
+    }
+    &__copyright {
+        margin-top: 40px;
+        font-size: 14px;
+        color: #C3C3C3;
+        white-space: nowrap;
+    }
+    &__socials {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+    }
+    &__socials-link {
+        width: 40px;
+        height: 40px;
+        background: #D8E2EF;
+        transition: .3s ease;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        img {
+            height: 17px;
+            width: auto;
+        }
+        &:hover {
+            background: #FFD603;
+        }
+    }
+    &__center {
+        padding: 0 29px 0 62px;
+        border-right: 1px solid #D8E2EF;
+        gap: 105px;
+    }
+    &__menu-title {
+        font-size: 24px;
+        line-height: 1.4;
+        margin-bottom: 22px;
+    }
+    &__menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 217px;
+        li {
+            a {
+                font-size: 16px;
+                line-height: 1.55;
+                color: $textBlue;
+            }
+        }
+    }
+    &__right {
+        padding-left: 60px;
+    }
+    &__phone {
+        font-weight: 700;
+        line-height: 1.3;
+        font-size: 32px;
+        margin-bottom: 13px;
+        display: block;
+        color: $textColor;
+    }
+    &__email {
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 18px;
+        font-size: 16px;
+        color: $textBlue;
+    }
+    .footer-mobile {
+        display: none;
+    }
+    @media #{$screen-xl-max} {
+        padding: 70px 0 30px;
+        &__subtitle {
+            margin-bottom: 12px;
+        }
+        &__left {
+            padding-right: 40px;
+        }
+        &__left-bottom {
+            gap: 27px;
+        }
+        &__center {
+            padding: 0 25px 0 50px;
+            gap: 70px;
+        }
+        &__menu-title {
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        &__right {
+            padding-left: 50px;
+        }
+        &__phone {
+            font-size: 30px;
+            margin-bottom: 13px;
+        }
+        &__socials {
+            max-width: 95px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media #{$screen-max} {
+        &__left-bottom {
+            flex-direction: column-reverse;
+        }
+        &__socials {
+            max-width: 205px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    @media #{$desktop-max} {
+        padding: 60px 0 25px;
+        &__subtitle {
+            margin-bottom: 12px;
+        }
+        &__left {
+            padding-right: 20px;
+        }
+        &__left-bottom {
+            gap: 25px;
+        }
+        &__center {
+            padding: 0 20px;
+            gap: 40px;
+        }
+        &__menu-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        &__right {
+            padding-left: 40px;
+        }
+        &__phone {
+            font-size: 25px;
+            margin-bottom: 13px;
+        }
+        &__email {
+            font-size: 15px;
+        }
+    }
+    @media #{$laptop-max} {
+        &__wrapp {
+            flex-wrap: wrap;
+        }
+        &__center {
+            border-right: none;
+            width: 60%;
+            gap: 30px;
+        }
+        &__left {
+            width: 40%;
+        }
+        &__right {
+            margin-top: 30px;
+            padding-left: 0;
+        }
+        &__menu {
+            width: 50%;
+        }
+    }
+    @media #{$mobile-max} {
+        padding-top: 30px;
+        &__right {
+            padding-left: 0;
+            margin-top: 0;
+        }
+        &__center {
+            gap: 0;
+        }
+        &__menu,
+        &__center {
+            width: 100%;
+        }
+        &__center,
+        &__left {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            border-right: none;
+            margin-bottom: 35px;
+        }
+        &__center,
+        &__left-bottom,
+        &__wrapp {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .footer-desktop {
+            display: none;
+        }
+        .footer-mobile {
+            display: block;
+        }
+        &__menu {
+            border-bottom: 1px solid #E5EEFB;
+            &:not(:last-child) {
+                border-top: 1px solid #E5EEFB;
+            }
+        }
+        &__menu-title {
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 15px;
+            justify-content: space-between;
+            font-weight: 400;
+            font-size: 17px;
+        }
+        &__menu-list {
+            display: none;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            max-width: 100%;
+            li {
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+                a {
+                    font-size: 15px;
+                }
+            }
+        }
+        &__copyright {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+}
