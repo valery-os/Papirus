@@ -1,6 +1,9 @@
 .header {
     &__top {
         background: $brandColor;
+        picture {
+            display: flex;
+        }
     }
     &__center {
         padding: 5px 0;
@@ -355,10 +358,7 @@
             }
         }
         &__top {
-            background: #fff;
             .container {
-                width: 100%;
-                padding: 0;
                 picture {
                     width: 100%;
                 }
@@ -379,16 +379,6 @@
             .header__logo {
                 img {
                     width: 36px;
-                }
-            }
-        }
-        &__top {
-            background: #fff;
-            .container {
-                width: 100%;
-                padding: 0;
-                picture {
-                    width: 100%;
                 }
             }
         }

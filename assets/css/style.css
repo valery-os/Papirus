@@ -538,6 +538,11 @@ img {
 .header__top {
   background: #FFCC00;
 }
+.header__top picture {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .header__center {
   padding: 5px 0;
   background: #F5F8FF;
@@ -945,13 +950,6 @@ img {
   .header__mobile-wrapp .search {
     min-width: 320px;
   }
-  .header__top {
-    background: #fff;
-  }
-  .header__top .container {
-    width: 100%;
-    padding: 0;
-  }
   .header__top .container picture {
     width: 100%;
   }
@@ -968,16 +966,6 @@ img {
   }
   .header__center-wrapp .header__logo img {
     width: 36px;
-  }
-  .header__top {
-    background: #fff;
-  }
-  .header__top .container {
-    width: 100%;
-    padding: 0;
-  }
-  .header__top .container picture {
-    width: 100%;
   }
   .header__mobile-wrapp .header__mobile-wrapp-container {
     padding: 0 15px;
@@ -2794,6 +2782,53 @@ img {
   -webkit-transform: none;
           transform: none;
   background: #e9c300;
+}
+
+.fixed-menu-wrapper {
+  display: none;
+}
+@media (max-width: 575px) {
+  .fixed-menu-wrapper {
+    -webkit-box-shadow: 0px -4px 20px 0px rgba(198, 203, 212, 0.5019607843);
+            box-shadow: 0px -4px 20px 0px rgba(198, 203, 212, 0.5019607843);
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0 9px;
+    display: block;
+    z-index: 10;
+  }
+  .fixed-menu__list {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 10px;
+  }
+  .fixed-menu__item a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 6px;
+    color: #C1C1C1;
+    font-size: 14px;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+  }
+  .fixed-menu__item a:hover {
+    color: #16489F;
+  }
+  .fixed-menu__item a:hover rect, .fixed-menu__item a:hover path {
+    stroke: #16489F;
+  }
 }
 
 .offer {
