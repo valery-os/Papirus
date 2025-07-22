@@ -116,6 +116,14 @@
         padding: 10px 0 11px;
         &-wrapper {
             background: #fff;
+            &.fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 100;
+                box-shadow: 0 0 7px #00000033;
+            }
         }
     }
     &__bottom-right {
@@ -250,6 +258,16 @@
         .desktop {
             display: none;
         }
+        &__bottom-wrapper {
+            &.fixed {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: auto;
+                z-index: 100;
+                box-shadow: none;
+            }
+        }
         &__mobile-wrapp {
             box-shadow: 0px 4px 20px 0px #C6CBD440;
             background: #fff;
@@ -259,7 +277,6 @@
                 left: 0;
                 width: 100%;
                 z-index: 1000;
-
             }
             .container {
                 width: auto;

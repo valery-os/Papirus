@@ -107,6 +107,9 @@
         &__top {
             gap: 7px;
         }
+        &__title {
+            white-space: normal;
+        }
     }
     @media (max-width: 350px) {
         &__title {
