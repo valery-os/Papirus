@@ -16,23 +16,34 @@
 
 .form-group {
     position: relative;
+    .validation-error {
+        color: #FF5650;
+        font-size: 12px;
+    }
+    &__input-wrapper {
+        position: relative;
+    }
     &.error-field {
-        input {
-            border-color: #FF5650;
-            &:focus {
+        .form-group__input-wrapper {
+            input {
                 border-color: #FF5650;
+                &:focus {
+                    border-color: #FF5650;
+                }
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 18px;
+                width: 22px;
+                height: 20px;
+                z-index: 1;
+                background: #fff url('../img/error.svg') no-repeat center center;
             }
         }
-        &:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 20px;
-            width: 20px;
-            height: 20px;
-            background: url('../img/error.svg') no-repeat center center;
-        }
+
     }
     input {
         width: 100%;

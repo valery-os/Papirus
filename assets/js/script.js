@@ -47,25 +47,23 @@ jQuery(function ($) {
             $searchPanel.addClass("active");
             $fixedMenuOverlay.fadeIn(200);
             $("body").addClass("overflow");
-            $iconSearch.hide();
             $iconClose.show();
         }
 
         function hidePopup() {
-            $searchPanel.removeClass("active");
             $fixedMenuOverlay.fadeOut(200);
             $popup.stop(true, true).fadeOut(200);
             $("body").removeClass("overflow");
-            $iconSearch.show();
             $iconClose.hide();
             $suggestions.html('').hide();
+            $(".search-live__no-results").hide();
             $(".search-live__cats li").show();
             $(".search-live__list .search-live__item").show();
         }
 
         function handleSearchInput() {
-            const val = $input.val().trim().toLowerCase();
 
+            const val = $input.val().trim().toLowerCase();
             if (val.length === 0) {
                 hidePopup();
                 return;
@@ -118,13 +116,15 @@ jQuery(function ($) {
             const hasMatches = matched.length > 0 || categoryMatchCount > 0 || productMatchCount > 0;
             if (hasMatches) {
                 $popup.stop(true, true).fadeIn(200);
+                $(".search-live__no-results").hide();
             } else {
                 $popup.stop(true, true).fadeOut(200);
+                $(".search-live__no-results").show();
             }
         }
 
         function bindEvents() {
-            $input.on("input", handleSearchInput);
+            $input.on("input change", handleSearchInput);
 
             $(document).on("click", ".suggestion-item", function () {
                 const cleanText = $(this).text();
@@ -161,8 +161,194 @@ jQuery(function ($) {
             });
         }
 
+
         bindEvents();
     }
+
+
+    function initLiveSearchHistory() {
+        const HISTORY_KEY = 'liveSearchHistory';
+        const MAX_HISTORY = 8;
+        const $overlay = $('.fixed-menu-overlay-history');
+
+        function getHistory() {
+            try {
+                return JSON.parse(localStorage.getItem(HISTORY_KEY)) || [];
+            } catch {
+                return [];
+            }
+        }
+
+        function saveHistory(arr) {
+            try {
+                localStorage.setItem(HISTORY_KEY, JSON.stringify(arr.slice(0, MAX_HISTORY)));
+            } catch {}
+        }
+
+        function pushHistory(term) {
+            if (!term) return;
+            let hist = getHistory().filter(t => t.toLowerCase() !== term.toLowerCase());
+            hist.unshift(term);
+            saveHistory(hist);
+        }
+
+        function removeHistoryItem(term) {
+            let hist = getHistory();
+            hist = hist.filter(t => t.toLowerCase() !== term.toLowerCase());
+            saveHistory(hist);
+        }
+
+        function showOverlay() {
+            if ($overlay.length) {
+                $('.js-search-panel').addClass("active");
+                $overlay.stop(true).fadeIn(200);
+            }
+        }
+
+        function hideOverlay() {
+            if ($overlay.length) {
+                $overlay.stop(true).fadeOut(200);
+            }
+        }
+
+        function renderHistory() {
+            const history = getHistory();
+            const $box = $('.live-search-history');
+            if (!history.length) {
+                $('.js-search-panel').addClass("active");
+                $overlay.stop(true).fadeIn(200);
+                return false;
+            } else {
+
+            }
+
+            const html = `
+      <div class="history-list">
+        ${history
+                .map(item => `
+          <div class="history-item" data-value="${item}">
+            <span class="history-text">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.1274 12.1657L13.3239 12.165V7.35767M2 11.0156L4.04995 13.2228C4.1895 13.3729 4.37902 13.4491 4.5692 13.4491M4.5692 13.4491C4.74163 13.4491 4.9145 13.3866 5.05102 13.26L7.25891 11.2098M4.5692 13.4491C4.51849 12.8682 4.59033 11.8428 4.63258 11.4027C4.77504 9.30437 5.6627 7.34536 7.15892 5.84872C10.5502 2.45847 16.0669 2.45847 19.4572 5.84872C21.177 7.56857 22.0245 9.8357 21.9995 12.0949C21.9752 14.2894 21.1277 16.4764 19.457 18.147C17.8145 19.7894 15.6308 20.6939 13.3079 20.6939C10.9859 20.6939 8.80219 19.7896 7.15892 18.147" stroke="#8996A7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                ${item}
+             </span>
+            <button type="button" class="history-remove" aria-label="Видалити запит">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.75391 3.75786L12.2392 12.2431M3.76172 12.2422L12.247 3.75696" stroke="#8996A7" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+          </div>`).join('')}
+      </div>
+    `;
+
+            if ($box.find('.history-list').length) {
+                $box.find('.history-list').replaceWith($(html));
+            } else {
+                $box.find('.live-search-history__top').after(html);
+            }
+
+            $box.show();
+            showOverlay();
+            return true;
+        }
+
+        function hideHistory() {
+            const $box = $('.live-search-history');
+            $box.find('.history-list').remove();
+            $box.hide();
+            hideOverlay();
+        }
+
+        function init() {
+            const $input = $('.search-frm__input');
+            const $historyBox = $('.live-search-history');
+
+            if (!$input.length || !$historyBox.length) return;
+
+            let typingTimer = null;
+            const typingDelay = 1000;
+
+            $input.on('focus', function () {
+                if ($input.val().trim() === '') {
+                    renderHistory();
+                }
+            });
+
+            $input.on('input', function () {
+                const val = $input.val().trim();
+
+                if (val !== '') {
+                    hideHistory();
+                } else {
+                    renderHistory();
+                }
+
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(() => {
+                    const val2 = $input.val().trim();
+                    if (val2) {
+                        pushHistory(val2);
+                    }
+                }, typingDelay);
+            });
+
+
+            $input.on('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    const val = $input.val().trim();
+                    if (val) {
+                        pushHistory(val);
+                    }
+                }
+            });
+
+            $(document).on('click', '.history-item .history-text', function () {
+                const val = $(this).parent().data('value').trim();
+                if (!val) return;
+                $input.val(val);
+                pushHistory(val);
+                hideHistory();
+            });
+
+            $(document).on('click', '.history-remove', function (e) {
+                e.stopPropagation();
+                const $parent = $(this).closest('.history-item');
+                const val = $parent.data('value');
+                if (!val) return;
+                removeHistoryItem(val);
+                $parent.remove();
+
+                if ($historyBox.find('.history-item').length === 0) {
+                    hideHistory();
+                }
+            });
+
+            $(document).on('click', '.clear-history', function (e) {
+                e.stopPropagation();
+                $('.js-search-panel').removeClass("active");
+                localStorage.removeItem(HISTORY_KEY);
+                hideHistory();
+            });
+
+
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('.search.js-search-panel').length) {
+                    $('.js-search-panel').removeClass("active");
+                    hideHistory();
+                }
+            });
+
+            $overlay.on('click', function () {
+                hideHistory();
+            });
+        }
+
+        $(function () {
+            init();
+        });
+    }
+
 
     function initInputCounters() {
         const counters = document.querySelectorAll(".input-counter");
@@ -557,6 +743,7 @@ jQuery(function ($) {
 
         $(document).on('click', '.cat-menu-btn:not(.open)', function () {
             $('.catalog-menu').toggleClass('active');
+            $('.mobile-menu').addClass('active');
             $('.fixed-mobile-menu-overlay').fadeIn(200);
         });
 
@@ -632,20 +819,130 @@ jQuery(function ($) {
         function toggleFixed() {
             if ($(window).scrollTop() >= offsetTop) {
                 $headerBottom.addClass('fixed');
+                $('.offer__cats-menu').css('top', $headerBottom.outerHeight());
             } else {
                 $headerBottom.removeClass('fixed');
+                $('.offer__cats-menu').css('top', $('.header').outerHeight());
             }
         }
         toggleFixed();
         $(window).on('scroll.fixedHeader', toggleFixed);
     }
 
+    function initFormValidation(selector) {
+        const $form = $(selector);
+        if ($form.length === 0) return;
 
+        const validators = {
+            required: ($input) => {
+                return $.trim($input.val()) !== '' ? null : 'Це поле є обовʼязковим.';
+            },
+            email: ($input) => {
+                const v = $.trim($input.val());
+                if (v === '') return null;
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(v) ? null : 'Невірний формат email.';
+            },
+            phone: ($input) => {
+                const v = $.trim($input.val());
+                if (v === '') return null;
+                const cleaned = v.replace(/[\s\-()]/g, '');
+                const re = /^\+?\d{5,20}$/;
+                return re.test(cleaned) ? null : 'Невірний номер телефону.';
+            },
+            min: ($input, param) => {
+                return $input.val().length >= parseInt(param, 10) ? null : `Мінімум ${param} символів.`;
+            },
+            match: ($input, selector) => {
+                const $other = $(selector);
+                if ($other.length === 0) return 'Нема з чим порівняти.';
+                return $input.val() === $other.val() ? null : 'Не збігається.';
+            }
+        };
+
+        function parseRules(str) {
+            if (!str) return [];
+            return str.split(',').map(r => {
+                const [name, param] = r.split(':');
+                return { name: $.trim(name), param: param ? $.trim(param) : null };
+            });
+        }
+
+        function validateInput($input) {
+            const ruleStr = $input.data('validate') || '';
+            const rules = parseRules(ruleStr);
+            for (const rule of rules) {
+                const fn = validators[rule.name];
+                if (!fn) continue;
+                const err = fn($input, rule.param);
+                if (err) return err;
+            }
+            return null;
+        }
+
+        function showError($input, message) {
+            const $group = $input.closest('.form-group');
+            const $error = $group.find('.validation-error').first();
+            if (message) {
+                $group.addClass('error-field');
+                $input.addClass('invalid');
+                if ($error.length) $error.text(message);
+            } else {
+                $group.removeClass('error-field');
+                $input.removeClass('invalid');
+                if ($error.length) $error.text('');
+            }
+        }
+
+        $form.attr('novalidate', 'novalidate');
+        const $inputs = $form.find('[data-validate]');
+
+        $inputs.on('input blur', function () {
+            const $inp = $(this);
+            const err = validateInput($inp);
+            showError($inp, err);
+        });
+
+        $form.find('.toggle-password').off('click').on('click', function () {
+            const $btn = $(this);
+            const $group = $btn.closest('.form-group');
+            const $input = $group.find('input').first();
+            if (!$input.length) return;
+            if ($input.attr('type') === 'password') {
+                $input.attr('type', 'text');
+                $btn.attr('aria-pressed', 'true');
+            } else {
+                $input.attr('type', 'password');
+                $btn.attr('aria-pressed', 'false');
+            }
+        });
+
+        $form.on('submit', function (e) {
+            let hasError = false;
+            $inputs.each(function () {
+                const $inp = $(this);
+                const err = validateInput($inp);
+                showError($inp, err);
+                if (err) hasError = true;
+            });
+            if (hasError) {
+                e.preventDefault();
+                const $first = $form.find('.invalid').first();
+                if ($first.length) $first.focus();
+            }
+        });
+
+        return {
+            validateInput: (el) => validateInput($(el)),
+            showError: (el, msg) => showError($(el), msg)
+        };
+    }
 
     function initScripts() {
         initStickyHeader();
         initLanguageSelect();
         initLiveSearch();
+        initLiveSearchHistory();
         initInputCounters();
         initBannersSwiperModule();
         initStockSlider();
@@ -665,6 +962,8 @@ jQuery(function ($) {
         setupMobileMenuToggle();
         initCatalogMenu();
         handleFixedHeader();
+        initFormValidation('#form-register');
+        initFormValidation('#form-login');
     }
     $(document).ready(initScripts);
 })
