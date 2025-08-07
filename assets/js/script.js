@@ -374,43 +374,15 @@ jQuery(function ($) {
     }
 
     function initBannersSwiperModule() {
-        let swiperBanners = null;
-
-        function initSwiperBanners() {
-            const screenWidth = window.innerWidth;
-
-            if (swiperBanners !== null) {
-                swiperBanners.destroy(true, true);
-                swiperBanners = null;
-            }
-
-            const swiperOptions = screenWidth < 768 ? {
-                spaceBetween: 10,
-                freeMode: true,
-                slidesPerView: 'auto',
-            } : {
-                spaceBetween: 10,
-                slidesPerView: 1,
-                loop: true,
-                navigation: {
-                    nextEl: ".offer__banners .slider-button-next",
-                    prevEl: ".offer__banners .slider-button-prev",
-                },
-            };
-
-            swiperBanners = new Swiper(".banners-slider", swiperOptions);
-        }
-
-        function debounce(func, wait = 100) {
-            let timeout;
-            return function (...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), wait);
-            };
-        }
-
-        initSwiperBanners();
-        window.addEventListener('resize', debounce(initSwiperBanners, 200));
+        const swiperBanners = new Swiper(".banners-slider", {
+            spaceBetween: 10,
+            slidesPerView: 1,
+            loop: true,
+            navigation: {
+                nextEl: ".offer__banners .slider-button-next",
+                prevEl: ".offer__banners .slider-button-prev",
+            },
+        });
     }
 
     function initStockSlider() {
@@ -594,12 +566,16 @@ jQuery(function ($) {
     function setupProductCardHover() {
         $('.product-card').hover(
             function () {
-                $(this).addClass('hover');
-                $(this).find('.product-card__hover-wrapp').fadeIn(200);
+                if ($(this).find('.product-card__hover-wrapp').length !== 0) {
+                    $(this).addClass('hover');
+                    $(this).find('.product-card__hover-wrapp').fadeIn(200);
+                }
             },
             function () {
-                $(this).removeClass('hover');
-                $(this).find('.product-card__hover-wrapp').fadeOut(200);
+                if ($(this).find('.product-card__hover-wrapp').length !== 0) {
+                    $(this).removeClass('hover');
+                    $(this).find('.product-card__hover-wrapp').fadeOut(200);
+                }
             }
         );
     }

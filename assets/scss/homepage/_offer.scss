@@ -217,10 +217,13 @@
     @media #{$tablet-max} {
 
         &__banners {
-
+            a {
+                display: flex;
+                align-items: center;
+            }
             img {
                 //width: 110px;
-                height: 240px;
+                height: auto;
             }
             .swiper-slide {
                 width: auto;
@@ -230,11 +233,6 @@
 
     }
     @media #{$mobile-max} {
-        &__banners {
-            img {
-                height: 200px;
-            }
-        }
         &__products-link {
             padding: 16px 16px 13px;
             span {
