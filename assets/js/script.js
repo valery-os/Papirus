@@ -569,12 +569,16 @@ jQuery(function ($) {
                 if ($(this).find('.product-card__hover-wrapp').length !== 0) {
                     $(this).addClass('hover');
                     $(this).find('.product-card__hover-wrapp').fadeIn(200);
+                } else {
+                    $(this).css('box-shadow', '0px -4px 20px rgba(198, 203, 212, 0.5), -4px 0px 20px rgba(198, 203, 212, 0.5), 4px 0px 20px rgba(198, 203, 212, 0.5)')
                 }
             },
             function () {
                 if ($(this).find('.product-card__hover-wrapp').length !== 0) {
                     $(this).removeClass('hover');
                     $(this).find('.product-card__hover-wrapp').fadeOut(200);
+                } else {
+                    $(this).css('box-shadow', 'none');
                 }
             }
         );
@@ -730,12 +734,18 @@ jQuery(function ($) {
 
         const $menu = $('.offer__cats-menu');
         const $btn = $('.header__catalog-btn');
+        let $header_height = $('.header').outerHeight();
 
         $btn.on('click', function (e) {
             e.preventDefault();
             $menu.fadeToggle(400);
+            $('.offer__cats-list').css('max-height', `calc(100vh - ${$header_height}px)`);
             $('html').toggleClass('overflow');
             $btn.toggleClass('active');
+        });
+
+        $(window).on('resize', function () {
+            $('.offer__cats-list').css('max-height', `calc(100vh - ${$('.header').outerHeight()}px)`);
         });
 
         $(document).on('click', function (e) {

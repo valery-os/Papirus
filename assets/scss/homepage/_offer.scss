@@ -1,6 +1,9 @@
 .offer {
     padding: 22px 0;
     position: relative;
+    &__show-all {
+        display: none;
+    }
     &.active {
         padding: 0;
         margin: 22px 0;
@@ -14,7 +17,12 @@
         .offer__content {
             opacity: 0;
         }
-
+        .offer__show-all {
+            display: block;
+        }
+    }
+    &__cats-list {
+        overflow: auto;
     }
     .container {
         max-width: 1660px;
@@ -290,9 +298,9 @@
             &.active {
                 background: #E5EEFB;
             }
-            &:nth-child(n + 16) {
-                display: none;
-            }
+            //&:nth-child(n + 16) {
+            //    display: none;
+            //}
         }
         &>li {
             .offer__cats-submenu {
