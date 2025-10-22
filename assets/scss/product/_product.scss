@@ -1,0 +1,36 @@
+.product {
+    margin-bottom: clamp(20px, 3vw, 30px);
+    &__wrapp {
+        justify-content: space-between;
+        &>div {
+            width: calc(50% - 3px);
+        }
+    }
+    &__gallery {
+
+    }
+    &-products-list {
+        padding: 60px 0 50px;
+    }
+    &-container {
+        overflow: hidden;
+    }
+    @media (max-width: 1365px) {
+        &__wrapp {
+            flex-direction: column;
+            &>div {
+                width: 100%;
+            }
+        }
+    }
+    @media (max-width: 991px) {
+        &-products-list {
+            padding: 40px 0 40px;
+        }
+    }
+    @media (max-width: 991px) {
+        &-products-list {
+            padding: 30px 0px;
+        }
+    }
+}

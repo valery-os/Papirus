@@ -1,85 +1,109 @@
 .brands {
     padding: 22px 0;
+    &__title {
+        font-size: 32px;
+    }
     &__content {
         position: relative;
     }
     .swiper-slide {
+        border: 1px solid #00000000;
+        transition: .3s ease;
+        border-radius: 10px;
+        &:hover {
+            border: 1px solid #E5EEFB;
+            a {
+                border: 1px solid #E5EEFB;
+            }
+        }
+    }
+    .swiper-slide a {
         background: #fff;
         border-radius: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 30px;
+        border: 1px solid #E5EEFB00;
+        transition: .3s ease;
         img {
             width: 155px;
         }
+
     }
+
     &__btn {
         display: none;
     }
     @media #{$tablet-max} {
+        &__title {
+            font-size: 20px;
+        }
         .slider-button {
             display: flex;
         }
     }
     @media #{$mobile-max}  {
-        &.active {
-            .swiper-wrapper {
-                &:after {
-                    display: none;
-                }
-            }
-        }
+        //&.active {
+        //    .swiper-wrapper {
+        //        &:after {
+        //            display: none;
+        //        }
+        //    }
+        //}
         .slider-button {
             display: none;
         }
-        .swiper-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            &:after {
-                background: linear-gradient(270deg, rgba(247, 248, 249, 0.6) 0%, #F7F8F9 170%);
-                content: '';
-                width: 100vw;
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                height: 90px;
-            }
-        }
+        //.swiper-wrapper {
+        //    display: flex;
+        //    flex-wrap: wrap;
+        //    gap: 8px;
+        //    &:after {
+        //        background: linear-gradient(270deg, rgba(247, 248, 249, 0.6) 0%, #F7F8F9 170%);
+        //        content: '';
+        //        width: 100vw;
+        //        position: absolute;
+        //        bottom: 0;
+        //        left: 50%;
+        //        transform: translateX(-50%);
+        //        height: 90px;
+        //    }
+        //}
         .swiper-slide {
-            width: calc(50% - 4px);
+            width: 150px;
+        }
+        .swiper-slide a{
+            //width: calc(50% - 4px);
             padding: 20px 30px;
-            &:nth-child(n+7){
-                display: none;
-            }
+            //&:nth-child(n+7){
+            //    display: none;
+            //}
             img {
                 width: 100%;
                 max-width: 98px;
             }
         }
-        &__btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            font-size: 11px;
-            font-weight: 700;
-            color: $textBlue;
-            border: 1px solid #16489F;
-            height: 44px;
-            width: 100%;
-            justify-content: center;
-            transition: .3s ease;
-            cursor: pointer;
-            &:hover {
-                color: #F7F8F9;
-                background: $textBlue;
-                path {
-                    fill: #F7F8F9
-                }
-            }
-        }
+        //&__btn {
+        //    display: flex;
+        //    align-items: center;
+        //    gap: 8px;
+        //    text-transform: uppercase;
+        //    font-size: 11px;
+        //    font-weight: 700;
+        //    color: $textBlue;
+        //    border: 1px solid #16489F;
+        //    height: 44px;
+        //    width: 100%;
+        //    justify-content: center;
+        //    transition: .3s ease;
+        //    cursor: pointer;
+        //    &:hover {
+        //        color: #F7F8F9;
+        //        background: $textBlue;
+        //        path {
+        //            fill: #F7F8F9
+        //        }
+        //    }
+        //}
     }
 }

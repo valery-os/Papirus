@@ -1,0 +1,89 @@
+.cart__sum {
+    background: #fff;
+    padding: 20px;
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 2px;
+    }
+    &-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        line-height: 1.35;
+        &-title {
+            width: calc(70% - 5px);
+            font-size: clamp(13px, 3vw, 16px);
+        }
+        &-value {
+            width: calc(30% - 5px);
+            text-align: right;
+            font-weight: 700;
+            font-size: clamp(13px, 3vw, 16px);
+        }
+        &-full {
+            p {
+                font-weight: 700;
+                line-height: 1.5;
+                font-size: clamp(13px, 3vw, 18px);
+            }
+            span {
+                font-weight: 700;
+                font-size: clamp(18px, 3vw, 24px);
+                color: #FF5650;
+            }
+        }
+    }
+    &-promocode {
+        &-form {
+            align-items: flex-start;
+            gap: 10px;
+            .form-group {
+                height: 100%;
+                width: calc(100% - 169px - 10px);
+                &__input-wrapper {
+                    height: 100%;
+                }
+                input {
+                    height: 100%;
+                }
+            }
+            &-wrapp {
+                display: none;
+                margin-top: 8px;
+            }
+            &-btn {
+                width: 169px;
+            }
+        }
+    }
+    @media (max-width: 767px) {
+        &-promocode {
+            &-form {
+                .form-group {
+                    height: 44px;
+                    width: calc(100% - 54px);
+                }
+            }
+        }
+    }
+    @media (max-width: 575px) {
+        &-item {
+            &-full {
+                flex-direction: column;
+                gap: 2px;
+                align-items: flex-start;
+                &>div {
+                    width: 100%;
+                }
+                .cart__sum-item-value {
+                    text-align: left;
+                }
+                .cart__sum-item-title {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

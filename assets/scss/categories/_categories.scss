@@ -1,0 +1,185 @@
+.categories {
+    padding: 0px 0 37px;
+    &__title {
+        margin-bottom: 15px;
+    }
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
+    &__item {
+        background: #fff;
+        border-radius: 5px;
+    }
+    &__item-img {
+        height: 160px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 90%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__item-content {
+        padding: 0 0px 30px;
+    }
+    &__item-title {
+        font-size: clamp(14px, 3vw, 15px);
+        font-weight: 700;
+        color: $textBlue;
+        margin: 14px 24px;
+        display: block;
+        transition: .3s ease;
+        &:hover {
+            color: #FF5650;
+        }
+        @media (max-width: 767px) {
+            font-weight: 500;
+        }
+    }
+    &__item-list {
+        display: flex;
+        flex-direction: column;
+        margin-top: 12px;
+        a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            color: #111;
+            transition: .3s ease;
+            padding: 7px 24px;
+            svg {
+                transition: .3s ease;
+            }
+            &:hover {
+                color: $textBlue;
+                background: #E5EEFB;
+            }
+            p {
+                width: calc(100% - 15px);
+                font-size: clamp(14px, 3vw, 15px);
+            }
+        }
+        li {
+            &:nth-child(n+8) {
+                display: none;
+            }
+        }
+    }
+    &__item-show-more {
+        font-size: clamp(14px, 3vw, 15px);
+        border: none;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 18%;
+        color: #16489F;
+        align-items: center;
+        background: transparent;
+        gap: 4px;
+        cursor: pointer;
+        padding: 0;
+        margin: 15px 24px 0;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .mobile-only {
+        display: none;
+    }
+    @media (max-width: 1199px) {
+        &__list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &__item-img {
+            height: 140px;
+        }
+    }
+    @media (max-width: 991px) {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &__item-img {
+            height: 120px;
+        }
+    }
+    @media (max-width: 575px) {
+        &__list {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        &__item {
+            position: relative;
+        }
+        &__item-img {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            height: 45px;
+            width: 45px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__item-list {
+            display: none;
+            padding-bottom: 8px;
+            svg {
+                display: none;
+            }
+            a {
+                padding: 7px 24px 7px 20px;
+            }
+        }
+        &__item {
+            display: flex;
+            padding: 15px 0px;
+            gap: 10px;
+            align-items: flex-start;
+            svg {
+                transition: .3s ease;
+                margin-left: auto;
+            }
+            &.open {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        &__item-content {
+            padding: 0;
+            width: 100%;
+        }
+        .mobile-only {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            margin-top: 10px;
+            display: block;
+        }
+        &__item-title {
+            padding-left: 80px;
+            padding-right: 40px;
+            font-size: clamp(14px, 3vw, 15px);
+            font-weight: 700;
+            color: $textBlue;
+            margin: 0;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            @media (max-width: 767px) {
+                font-weight: 500;
+            }
+        }
+        &__item-show-more {
+            display: none;
+        }
+    }
+
+}

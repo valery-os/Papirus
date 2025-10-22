@@ -1,6 +1,9 @@
+textarea {
+    font-family: 'Roboto', sans-serif;
+}
+
 .password-wrapper {
     position: relative;
-
     input {
         padding-right: 40px;
     }
@@ -23,6 +26,7 @@
     &__input-wrapper {
         position: relative;
     }
+
     &.error-field {
         .form-group__input-wrapper {
             input {
@@ -46,13 +50,16 @@
 
     }
     input {
-        width: 100%;
-        font-size: 16px;
-        border: 1px solid #D8E2EF;
-        border-radius: 8px;
-        outline: none;
-        padding: 15px 20px;
-        margin-bottom: 0;
+        &:not(.rating__item) {
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #D8E2EF;
+            border-radius: 8px;
+            outline: none;
+            padding: 15px 20px;
+            margin-bottom: 0;
+        }
+
 
         &:focus {
             border-color: #16489F;
@@ -92,6 +99,35 @@
             }
         }
     }
+    textarea {
+        width: 100%;
+        font-size: 16px;
+        border: 1px solid #D8E2EF;
+        border-radius: 8px;
+        outline: none;
+        padding: 15px 20px;
+        &:focus {
+            border-color: #16489F;
+        }
+        &:focus~label,
+        {
+            font-size: 12px;
+            background: #fff;
+            top: 0px;
+        }
+        &.has-value {
+            &+ label {
+                font-size: 12px;
+                background: #fff;
+                top: 0px;
+            }
+        }
+    }
+    &-textarea-wrapper {
+        label {
+            top: 25px;
+        }
+    }
     @media #{$tablet-max} {
         &.error-field {
             &:before {
@@ -99,8 +135,10 @@
             }
         }
         input {
-            font-size: 15px;
-            padding: 12px 17px;
+            &:not(.rating__item) {
+                font-size: 15px;
+                padding: 12px 17px;
+            }
         }
         label {
             left: 15px;

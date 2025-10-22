@@ -41,6 +41,31 @@
         }
 
     }
+    &-catalog {
+        .seo-content__btn {
+            margin-top: 5px;
+        }
+        .seo-content__shadow {
+            position: relative;
+            &:after {
+                background: linear-gradient(180deg, rgba(247, 248, 249, 0) 0%, #F7F8F9 100%);
+                content: '';
+                width: 100vw;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 100%
+            }
+        }
+        &.active {
+            .seo-content__shadow {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
     @media #{$screen-max} {
         padding: 60px 0;
         &__title {

@@ -1,5 +1,8 @@
 .stronger {
     padding: 22px 0;
+    &__title {
+        font-size: 32px;
+    }
     &__list {
         background: #fff;
         padding: 33px 80px;
@@ -10,6 +13,7 @@
         position: relative;
         flex-direction: column;
         align-items: center;
+        cursor: pointer;
         img {
             width: 70px;
             margin-bottom: 20px;
@@ -36,6 +40,9 @@
         }
     }
     @media #{$desktop-max} {
+        &__title {
+            font-size: 20px;
+        }
         &__list {
             padding: 25px 50px;
         }

@@ -1,5 +1,8 @@
 .news {
     padding: 22px 0;
+    &__title {
+        font-size: 32px;
+    }
     &__item {
         padding: 30px 0 15px;
         background: #fff;
@@ -10,6 +13,9 @@
         border: 1px solid #fff;
         &:hover {
             border: 1px solid #E5EEFB;
+            .news__item-title {
+                color: #FF5650;
+            }
         }
     }
     &__item-title {
@@ -19,6 +25,7 @@
         line-height: 1.55;
         border-bottom: 1px solid #E5EEFB;
         color: $textBlue;
+        transition: .3s ease;
     }
     &__item-date {
         padding: 15px 30px 0;
@@ -37,6 +44,9 @@
         }
     }
     @media #{$desktop-max} {
+        &__title {
+            font-size: 20px;
+        }
         .swiper-slide {
             width: auto;
         }

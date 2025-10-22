@@ -1,4 +1,14 @@
 .header {
+    position: relative;
+    &-cat-menu-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+    }
     &__top {
         background: $brandColor;
         picture {
@@ -7,7 +17,7 @@
     }
     &__center {
         padding: 5px 0;
-        background: #F5F8FF;
+        background: #F7F8F9;
     }
     &__logo {
         gap: 18px;
@@ -39,12 +49,25 @@
     &__menu {
         a {
             color: $textBlue;
+            transition: .3s ease;
+            &:hover {
+                color: #FF5650;
+            }
         }
     }
     &__menu-discount {
-        align-items: center;
         gap: 5px;
         color: #FF5650;
+        transition: .3s ease;
+        path {
+            transition: .3s ease;
+        }
+        &:hover {
+            color: $textBlue;
+            path {
+                fill: $textBlue;
+            }
+        }
     }
     &__center-right {
         gap: 12px;
@@ -53,9 +76,51 @@
         align-items: center;
         gap: 8px;
         color: $textColor;
+        transition: .3s ease;
+        &:hover {
+            color: $textBlue;
+        }
         img {
             width: 24px;
         }
+        &-arrow {
+            margin-left: 5px;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+        &-wrapper {
+            position: relative;
+            &.active {
+                .header__phone-arrow {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        &-dropdown {
+            position: absolute;
+            will-change: transform;
+            top: 5px;
+            right: 0px;
+            transform: translate3d(0px, 23px, 0px);
+            z-index: 1000;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #D8E2EF;
+            line-height: 1.35;
+            color: $textBlue;
+            display: none;
+            font-size: 14px;
+            a {
+                display: inline-flex;
+                align-items: center;
+                margin: 2px 3px;
+            }
+            img {
+                width: auto;
+                height: 25px;
+            }
+        }
+
     }
     &__center-wrapp {
         justify-content: space-between;
@@ -67,10 +132,11 @@
     &__catalog-btn {
         border-radius: 4px;
         border: 1px solid #D8E2EF;
-        padding: 16px 22px;
+        padding: 16px 18px;
         color: $textColor;
         justify-content: space-between;
         align-items: center;
+        height: 48px;
         .close {
             display: none;
         }
@@ -81,6 +147,10 @@
             .open {
                 display: none;
             }
+        }
+        &:hover {
+            background: #E5EEFB;
+            color: #16489F;
         }
     }
     .nice-select {
@@ -114,15 +184,17 @@
     &__bottom {
         justify-content: space-between;
         padding: 10px 0 11px;
+        align-items: center;
         &-wrapper {
             background: #fff;
+            position: relative;
             &.fixed {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
-                z-index: 5;
                 box-shadow: 0 0 7px #00000033;
+                z-index: 101;
             }
         }
     }
@@ -139,7 +211,7 @@
         &.active {
             z-index: 201;
             .search-form {
-                border: 2px solid $textBlue;
+                border: 1px solid $textBlue;
             }
         }
     }
@@ -147,7 +219,7 @@
     .search-form {
         background: #fff;
         align-items: center;
-        border: 2px solid #D8E2EF;
+        border: 1px solid #D8E2EF;
         border-radius: 4px;
         width: 100%;
         justify-content: space-between;
@@ -156,6 +228,7 @@
             height: 100%;
             padding: 15px 20px;
             width: 100%;
+            border-radius: 4px 0 0 4px;
             &::placeholder {
                 color: #C3C3C3;
             }
@@ -462,8 +535,8 @@
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     position: absolute;
-    left: 2px;
-    width: calc(100% - 4px);
+    left: 1px;
+    width: calc(100% - 2px);
 
     &__title {
         line-height: 1.35;
@@ -543,10 +616,10 @@
         line-height: 1.5;
         padding: 22px;
         text-align: center;
-        width: calc(100% - 4px);
+        width: calc(100% - 2px);
         color: #646464;
         border-radius: 0 0 5px 5px;
-        left: 2px;
+        left: 1px;
         position: absolute;
         @media (max-width: 1200px) {
             height: calc(100vh - 64px);
@@ -690,11 +763,11 @@
 
 .live-search-history {
     position: absolute;
-    left: 2px;
+    left: 1px;
     background: #fff;
     border-radius: 0 0 5px 5px;
     padding: 22px;
-    width: calc(100% - 4px);
+    width: calc(100% - 2px);
     z-index: 100;
     &__top {
         display: flex;

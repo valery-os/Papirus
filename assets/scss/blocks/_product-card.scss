@@ -6,8 +6,10 @@
     max-width: 249px;
     height: 100%;
     transition: .3s ease;
+    //height: auto;
     &__image {
         width: 100%;
+        position: relative;
     }
     &__content {
         position: relative;
@@ -15,24 +17,119 @@
         align-items: flex-start;
         width: 100%;
     }
+    &__colors {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 4px;
+        .color-option {
+            position: relative;
+            cursor: pointer;
+            padding: 10%;
+            border-radius: 2px;
+            border: 1px solid #ffffff00;
+            display: flex;
+            justify-content: center;
+            &:has(input:checked) {
+                border-color: #16489F;
+            }
+        }
+        .color-option input {
+            display: none;
+        }
+        .color-swatch {
+            display: block;
+            width: 90%;
+            aspect-ratio: 1 / 1;
+            border-radius: 4px;
+        }
+        .color-option-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            span {
+                font-size: 13px;
+                color: #8996A7;
+                //border: 1px solid #D8E2EF;
+                //border-radius: 4px;
+                background: transparent;
+                //width: 17px;
+                //height: 17px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                letter-spacing: -0.5px;
+                transition: .3s ease;
+                &:hover {
+                    color: #FF5650;
+                }
+            }
+            & ~ .color-option {
+                display: none;
+            }
+        }
+        &.open {
+            box-shadow: 0px 4px 20px 0px #C6CBD480;
+            border-radius: 0 0 5px 5px;
+            padding-bottom: 8px;
+        }
+    }
     &__title {
         color: $textBlue;
         line-height: 1.35;
         font-weight: 400;
         font-size: 15px;
         margin-bottom: 6px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -moz-box;
+        -moz-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-clamp: 2;
+        box-orient: vertical;
+        transition: .3s ease;
+        &:hover {
+            color: #FF5650;
+        }
     }
     &__reviews {
         margin-bottom: 10px;
         transition: .3s ease;
-        align-items: center;
+        align-items: flex-start;
        .rating {
            margin-right: 14px;
        }
     }
     &__reviews-count {
         font-size: 15px;
-        margin-left: 8px;
+        //transition: 0.9s ease;
+        transition: $transition;
+        svg {
+            margin-right: 8px;
+            path {
+                transition: $transition;
+            }
+        }
+        &:hover {
+            color: #FF5650;
+            transition: $transition;
+            svg {
+                path {
+                    transition: $transition;
+                    fill: #FF5650;
+                }
+            }
+        }
     }
     &__reviews-link {
         gap: 7px;
@@ -85,6 +182,7 @@
         position: absolute;
         top: -20px;
         left: -20px;
+        z-index: 1;
         span {
             height: 28px;
             display: flex;
@@ -257,11 +355,9 @@
         }
 
     }
-    &.in-cart {
-        .btn-buy {
-            gap: 0px;
-            background: #E5EEFB;
-        }
+    .btn-buy.in-cart {
+        gap: 0px;
+        background: #E5EEFB;
     }
     &.not-available {
         *:not(.product-card__bottom, .product-card__content, .btn-buy, .btn-buy svg, .btn-buy path, .product-card__hover-wrapp, .product-card__heart, .product-card__heart svg) {
@@ -269,8 +365,23 @@
         }
         .btn-buy {
             background: transparent;
-            border: 1px solid #16489F;
+            border: 1px solid #16489F00!important;
             width: 44px;
+            svg {
+                height: 40px;
+                width: 40px;
+            }
+            path {
+                stroke: #C3C3C3;
+            }
+            &.active {
+                //background: $textBlue;
+                svg {
+                    path {
+                        stroke: $textBlue;
+                    }
+                }
+            }
         }
         .price {
             color: #C3C3C3!important;
@@ -334,6 +445,177 @@
             svg {
                 width: 19px;
                 height: 19px;
+            }
+        }
+        &__colors {
+            margin: 0;
+
+            grid-column-gap: 2px;
+            .color-option {
+                padding: 3px;
+            }
+            .color-option input {
+                display: none;
+            }
+            .color-swatch {
+                height: 100%;
+                border-radius: 3px;
+            }
+            .color-option-btn {
+                span {
+                    font-size: 8px;
+                    border-radius: 3px;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+            &.open {
+                border-radius: 0 0 4px 4px;
+                padding-bottom: 6px;
+            }
+        }
+    }
+    @media #{$mobile-max} {
+        &__hover-wrapp {
+            display: none!important;
+        }
+        &__colors {
+            .color-option {
+                padding: 2px;
+            }
+        }
+    }
+    @media (max-width: 370px) {
+        padding: 8px;
+
+        &__colors {
+            .color-option {
+                padding: 1px;
+            }
+        }
+        &__title {
+            font-size: 13px;
+        }
+        &__reviews {
+            margin-bottom: 8px;
+            svg {
+                width: 14px;
+                height: 15px;
+            }
+            .rating {
+                margin-right: 6px;
+                &__active:before,
+                &__body:before {
+                    width: 80px;
+                    height: 15px;
+                    background-size: contain;
+                }
+                &__active {
+                    height: 15px;
+                }
+
+            }
+        }
+        &__reviews-count {
+            font-size: 12px;
+            margin-left: 6px;
+        }
+        &__reviews-link {
+            gap: 7px;
+            font-size: 13px;
+        }
+        .marks-slider {
+            margin-bottom: 12px;
+            img {
+                height: 20px;
+            }
+        }
+        &__labels {
+            gap: 3px;
+            top: -8px;
+            left: -8px;
+            span {
+                height: 22px;
+                padding: 0 5px 0 6px;
+                font-size: 10px;
+                &:after {
+                    border-bottom-width: 22px !important;
+                }
+            }
+        }
+        &__bonus {
+            gap: 6px;
+            font-size: 12px;
+            height: 20px;
+            padding-right: 8px;
+            margin-top: 8px;
+        }
+        &__hover {
+            .btn-buy {
+                font-size: 12px;
+            }
+            .input-counter {
+                width: 70px;
+                height: 32px;
+            }
+        }
+        &__quantity {
+            margin-bottom: 10px;
+            p {
+                font-size: 11px;
+            }
+            button {
+                width: 22px;
+                height: 22px;
+            }
+            input {
+                width: 24px;
+            }
+        }
+        &__details {
+            margin-left: -7px;
+            width: calc(100% + 14px);
+        }
+        &__details-item {
+            font-size: 12px;
+            height: 30px;
+            padding: 0 7px;
+            gap: 6px;
+            svg {
+                width: 15px;
+                height: 15px;
+            }
+            p {
+                width: calc(100% - 15px - 7px);
+            }
+        }
+        &__info {
+            gap: 8px;
+            margin-bottom: 8px;
+            li {
+                font-size: 12px;
+            }
+        }
+        &__delivery {
+            gap: 8px;
+            b {
+                font-size: 12px;
+                width: calc(100% - 19px - 8px);
+            }
+        }
+        &__hover {
+            &-wrapp {
+                padding: 8px;
+            }
+        }
+        &.not-available {
+            .btn-buy {
+                width: 40px;
+            }
+            .price {
+                p {
+                    font-size: 12px;
+                }
             }
         }
     }

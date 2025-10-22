@@ -1,5 +1,8 @@
 .stock {
     padding: 22px 0;
+    &__title {
+        font-size: 32px;
+    }
     &__item {
         position: relative;
         display: flex;
@@ -58,6 +61,9 @@
         }
     }
     @media #{$desktop-max} {
+        &__title {
+            font-size: 20px;
+        }
         &__item-overlay {
             padding: 30px;
         }

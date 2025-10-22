@@ -1,0 +1,35 @@
+.breadcrumbs {
+    padding: 10px 0;
+    &__list {
+        gap: 15px;
+        align-items: center;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        width: auto;
+        overflow: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        height: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    &__item {
+        a {
+            color: #16489F;
+        }
+        a,p {
+            font-size: 13px;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+    }
+    &__home {
+        width: 30px;
+        height: 30px;
+    }
+    &__sep {
+        display: flex;
+        align-items: center;
+    }
+}
