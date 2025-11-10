@@ -21,6 +21,7 @@
             text-align: right;
             font-weight: 700;
             font-size: clamp(13px, 3vw, 16px);
+            white-space: nowrap;
         }
         &-full {
             p {
@@ -35,7 +36,18 @@
             }
         }
     }
+    &-inputs-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
     &-promocode {
+        &-top {
+            gap: 7px;
+            @media (max-width: 450px) {
+                flex-direction: column;
+            }
+        }
         &-form {
             align-items: flex-start;
             gap: 10px;
@@ -55,6 +67,9 @@
             }
             &-btn {
                 width: 169px;
+            }
+            @media (max-width: 767px) {
+                padding-bottom: 15px;
             }
         }
     }

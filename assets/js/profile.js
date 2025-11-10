@@ -1,6 +1,7 @@
 jQuery(function ($) {
 
     function initCalendar() {
+        if (!$('#sort-date').length) return;
         let datepicker = $('#sort-date').datepicker({
             range: true,
             dateFormat: 'yyyy-mm-dd',
@@ -72,12 +73,41 @@ jQuery(function ($) {
         });
     }
 
+    function sortButtonOffers() {
+        $('.profile__orders-right-buttons button').on('click', function() {
+            $(this).siblings('button').removeClass('active');
+            $(this).addClass('active');
+        });
+    }
+
+    function initShowMoreBonuses() {
+        $(document).on('click', '.discount__show-more button', function() {
+            var $this = $(this);
+            var target = $('.discount__hidden');
+
+            if (target.is(':visible')) {
+                target.slideUp();
+                $this.removeClass('active')
+            } else {
+                target.slideDown().css('display', 'flex');
+                $(this).addClass('active');
+            }
+
+            var nowText = $.trim($this.find('span').text());
+            var newText = $this.attr('data-text');
+            $this.find('span').text(newText);
+            $this.attr('data-text', nowText);
+        });
+    }
+
 
     function initScripts() {
         initCalendar();
         initProfileOrderCheck();
         initProfileOrdersCheckAll();
         initOpenDetailsOrder();
+        sortButtonOffers();
+        initShowMoreBonuses();
     }
     $(document).ready(initScripts);
 

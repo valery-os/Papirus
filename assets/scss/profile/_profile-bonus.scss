@@ -70,6 +70,56 @@
             font-size: clamp(14px, 3vw, 15px);
         }
     }
+    &-info {
+        .discount__show-more {
+            margin-bottom: clamp(15px, 3vw, 20px);
+        }
+        .discount__show-more p {
+            font-size: clamp(13px, 3vw, 14px);
+            line-height: 1.3;
+        }
+
+        .profile__orders {
+            &-header {
+                grid-template-columns: 1fr 1.2fr 1fr 1.2fr 1.2fr 1fr 1fr;
+            }
+            &-row-top {
+                grid-template-columns: 1fr 1.2fr 1fr 1.2fr 1.2fr 1fr 1fr;
+                &>div {
+                    font-size: clamp(13px, 3vw, 14px);
+                }
+            }
+            &-row {
+                &.not-active {
+                    opacity: 0.55;
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            .profile__orders {
+                &-header {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                &-row-top {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                &-table {
+                    width: 100%;
+                }
+            }
+            .profile__orders-row-top>div {
+                display: block!important;
+            }
+            .profile__orders-row-top {
+                &>div {
+                    &:nth-child(n+3) {
+                        display: none!important;
+                    }
+                }
+            }
+        }
+    }
+
     @media #{$tablet-max} {
         &-list {
             p {

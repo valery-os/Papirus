@@ -1,0 +1,109 @@
+.catalog-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: .3s ease;
+    display: none;
+    max-width: 400px;
+    &.active {
+        transform: translateX(0);
+    }
+    &__top-info {
+        gap: 24px;
+        align-items: center;
+        font-size: 16px;
+        color: $textBlue;
+    }
+    &__list {
+        flex-direction: column;
+        gap: 33px;
+        width: 100%;
+        padding: 17px 0;
+        a {
+            font-size: 14px;
+
+            color: $textColor;
+            align-items: center;
+            justify-content: space-between;
+            &>div {
+                gap: 24px;
+                align-items: center;
+            }
+        }
+        img {
+            width: 24px;
+        }
+    }
+    &__inner-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-height: calc(100vh - 64px);
+        position: fixed;
+        background: #fff;
+        top: 64px;
+        width: 100%;
+        left: 0;
+        height: 100%;
+        overflow: auto;
+        transform: translateX(-100%);
+        transition: .3s ease;
+        &.active {
+            transform: translateX(0);
+        }
+    }
+    &__cats-block {
+        display: flex;
+        flex-direction: column;
+        ul {
+            display: none;
+            background: #F7F8F9;
+            li {
+                width: 100%;
+                display: flex;
+            }
+            a {
+                width: 100%;
+                font-size: 14px;
+                color: #111111A6;
+                padding: 13px 50px;
+            }
+        }
+        h4 {
+            font-weight: 400;
+            font-size: 14px;
+            background: #fff;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 17px 30px 16px;
+            svg {
+                transition: .3s ease;
+            }
+            &.active {
+                background: #F7F8F9;
+                color: $textBlue;
+                svg {
+                    transform: rotate(90deg);
+
+                    path {
+                        stroke: $textBlue;
+                    }
+                }
+            }
+        }
+    }
+    @media #{$desktop-max} {
+        display: block;
+        .container {
+            max-height: calc(100vh - 64px);
+            overflow-y: auto;
+        }
+    }
+}

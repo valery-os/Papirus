@@ -81,7 +81,7 @@ jQuery(function ($) {
     function showPromocodeForm() {
         $('.cart__sum-promocode-text').on('click', function(e) {
             e.preventDefault();
-            $('.cart__sum-promocode-form-wrapp').slideToggle();
+            $(this).closest('.cart__sum-promocode').find('.cart__sum-promocode-form-wrapp').slideToggle();
         })
     }
 

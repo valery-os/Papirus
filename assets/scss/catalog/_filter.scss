@@ -175,6 +175,7 @@
             margin-left: auto;
             font-size: 13px;
             color: #8996A7;
+            transition: .3s ease;
         }
         &:nth-child(n+11) {
             display: none;
@@ -214,6 +215,9 @@
                 &::before {
                     border-color: $textBlue;
                 }
+            }
+            .filter__checkbox-count {
+                color: $textBlue;
             }
         }
     }

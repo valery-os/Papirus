@@ -1,0 +1,12 @@
+.payment-delivery {
+    padding: clamp(16px, 3vw, 20px) 0 clamp(56px, 3vw, 80px);
+    &__title {
+        font-size: clamp(18px, 3vw, 24px);
+        margin-bottom: clamp(10px, 3vw, 15px);
+    }
+    &__blocks {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}

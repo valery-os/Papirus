@@ -1,0 +1,102 @@
+.contacts__bot {
+    margin-bottom: clamp(32px, 5vw, 60px);
+
+    .only-mobile {
+        display: none;
+    }
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    &-item {
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        align-items: center;
+        gap: 20px;
+    }
+    &-item-img {
+        height: 100%;
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &-item-title {
+        font-size: clamp(14px, 3vw, 15px);
+        margin-bottom: 12px;
+    }
+    &-item-list {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+            a,p {
+                width: calc(100% - 36px);
+                font-size: clamp(14px, 3vw, 15px);
+                color: #111;
+            }
+            a {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    @media (max-width: 1365px) {
+        &-item-title {
+            br {
+                display: none;
+            }
+        }
+    }
+    @media (max-width: 991px) {
+        &-list {
+            gap: 15px;
+        }
+    }
+    @media (max-width: 767px) {
+        .only-mobile {
+            display: block;
+        }
+        .only-desktop {
+            display: none;
+        }
+        &-list {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        &-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 13px;
+        }
+        &-item-img {
+            display: flex;
+            gap: 13px;
+            align-items: center;
+            height: auto;
+            img {
+                width: 94px;
+                height: auto;
+            }
+        }
+        &-item-title {
+            width: calc(100% - 110px);
+            margin-bottom: 0;
+        }
+    }
+    @media (max-width: 370px) {
+        &-item {
+            padding: 15px;
+        }
+    }
+}

@@ -129,13 +129,14 @@ jQuery(function ($) {
         if (!sliderContainer) return;
 
         const nextBtn = sliderContainer.querySelector('.slider-button-next');
-
+        const prevBtn = sliderContainer.querySelector('.slider-button-prev');
         new Swiper(sliderEl, {
             slidesPerView: 'auto',
             freeMode: true,
             spaceBetween: 5,
             navigation: {
                 nextEl: nextBtn,
+                prevEl: prevBtn,
             },
         });
     }

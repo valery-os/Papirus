@@ -1,0 +1,46 @@
+.formats {
+    &__list {
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    &__item {
+        border: 2px solid #D8E2EF;
+        height: 40px;
+        border-radius: 6px;
+        padding: 0 10px;
+        align-items: center;
+        font-size: 15px;
+        gap: 8px;
+        transition: .3s ease;
+        &:hover {
+            border-color: #16489F;
+            cursor: pointer;
+        }
+        &.circle {
+            border-radius: 50%;
+            height: 32px;
+            padding: 0 5px;
+            font-size: 16px;
+            margin: 4px;
+        }
+        &.checked {
+            border-color: #16489F;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: #16489F;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none'><path d='M1 1L6.99936 6.99936M1.00781 7L7.00717 1.00064' stroke='white' stroke-width='1.5' stroke-linecap='round'/></svg>");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 8px 8px;
+                top: -7px;
+                right: -7px;
+            }
+        }
+    }
+}

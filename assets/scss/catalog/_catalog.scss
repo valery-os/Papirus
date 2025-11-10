@@ -82,6 +82,9 @@
             transform: translateY(-50%);
             z-index: 9;
         }
+        .swiper-button-disabled {
+            display: none;
+        }
         .catalog-brands-slider {
             height: 100%;
         }
@@ -110,6 +113,10 @@
                 height: 100%;
                 border: 1px solid #E5EEFB;
                 opacity: 0.55;
+                transition: .3s ease;
+                &:hover {
+                    opacity: 1;
+                }
                 &.checked {
                     opacity: 1;
                     border-color: #16489F;

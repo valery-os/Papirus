@@ -37,6 +37,11 @@
     &-block-top {
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 450px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
     }
     &-block-inputs {
         padding-left: 10px;

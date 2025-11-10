@@ -15,6 +15,11 @@
     &-container {
         overflow: hidden;
     }
+    &-card {
+        &__reviews-count {
+            margin-left: 6px;
+        }
+    }
     @media (max-width: 1365px) {
         &__wrapp {
             flex-direction: column;

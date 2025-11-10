@@ -1,4 +1,16 @@
+function preloaderSlider() {
+    const wrappers = document.querySelectorAll('.product-cards__list');
+
+    wrappers.forEach(wrapper => {
+        wrapper.classList.add('loading-slider');
+    });
+}
+
+preloaderSlider();
+
 jQuery(function ($) {
+
+
     function initStickyHeader() {
         const $target = $('.header__mobile-wrapp');
         if ($target.length === 0) return;
@@ -553,16 +565,56 @@ jQuery(function ($) {
                 slidesPerView: 'auto',
                 spaceBetween: 5,
                 freeMode: false,
-                grabCursor: true,
             });
         });
     }
+
+    function initTooltipForDataElements() {
+        const $elements = $('[data-tooltip]');
+        if ($elements.length === 0) return;
+
+        const $tooltip = $('<div id="tooltip-mark" class="tooltip-mark"></div>').appendTo('body');
+        let tooltipTimer;
+
+        $elements.on('mouseenter', function () {
+            const $el = $(this);
+            const text = $el.data('tooltip');
+            if (!text) return;
+
+            tooltipTimer = setTimeout(function () {
+                $tooltip.text(text).addClass('show');
+
+                const offset = $el.offset();
+                const elWidth = $el.outerWidth();
+                const tooltipWidth = $tooltip.outerWidth();
+                const tooltipHeight = $tooltip.outerHeight();
+
+                const top = offset.top - tooltipHeight + 17;
+                const left = offset.left + elWidth / 2;
+
+                $tooltip.css({
+                    left: left + 'px',
+                    top: top + 'px',
+                    opacity: 1
+                });
+            }, 100);
+        });
+
+        $elements.on('mouseleave', function () {
+            clearTimeout(tooltipTimer);
+            $tooltip.removeClass('show').css('opacity', 0);
+        });
+    }
+
 
     function initProductCardsSliders() {
         const sliders = document.querySelectorAll('.product-cards-slider');
         if (!sliders.length) return;
 
+
         sliders.forEach(sliderEl => {
+
+
             new Swiper(sliderEl, {
                 slidesPerView: 'auto',
                 spaceBetween: 5,
@@ -573,6 +625,13 @@ jQuery(function ($) {
                     draggable: true,
                 },
                 on: {
+                    init: function () {
+                        // когда слайдер полностью инициализирован — убираем прелоадер
+                        const wrapper = sliderEl.closest('.product-cards__list');
+                        if (wrapper) {
+                            wrapper.classList.remove('loading-slider');
+                        }
+                    },
                     touchMove: function () {
                         sliderEl.classList.add('swiper-is-dragging');
                     },
@@ -600,23 +659,44 @@ jQuery(function ($) {
     function setupProductCardHover() {
         $('.product-card').hover(
             function () {
-                if ($(this).find('.product-card__hover-wrapp').length !== 0) {
-                    $(this).addClass('hover');
-                    $(this).find('.product-card__hover-wrapp').fadeIn(200);
+                const $card = $(this);
+
+                const $imageLink = $card.find('.product-card__image');
+                const newImg = $imageLink.data('img');
+                const $img = $imageLink.find('img');
+
+                if (newImg) {
+                    $imageLink.attr('data-old-img', $img.attr('src'));
+                    $img.attr('src', newImg);
+                }
+
+                if ($card.find('.product-card__hidden').length !== 0) {
+                    $card.addClass('show');
+                    $card.find('.product-card__hidden').fadeIn(200);
                 } else {
-                    $(this).css('box-shadow', '0px -4px 20px rgba(198, 203, 212, 0.5), -4px 0px 20px rgba(198, 203, 212, 0.5), 4px 0px 20px rgba(198, 203, 212, 0.5)')
+                    $card.css('box-shadow', '0 0 10px 0 rgba(0, 0, 0, .12)');
                 }
             },
             function () {
-                if ($(this).find('.product-card__hover-wrapp').length !== 0) {
-                    $(this).removeClass('hover');
-                    $(this).find('.product-card__hover-wrapp').fadeOut(200);
+                const $card = $(this);
+                const $imageLink = $card.find('.product-card__image');
+                const oldImg = $imageLink.attr('data-old-img');
+                const $img = $imageLink.find('img');
+
+                if (oldImg) {
+                    $img.attr('src', oldImg);
+                }
+
+                if ($card.find('.product-card__hidden').length !== 0) {
+                    $card.removeClass('show');
+                    $card.find('.product-card__hidden').fadeOut(200);
                 } else {
-                    $(this).css('box-shadow', 'none');
+                    $card.css('box-shadow', 'none');
                 }
             }
         );
     }
+
 
     function setupSeoContentToggle() {
         const $btn = $('.seo-content__btn');
@@ -715,14 +795,17 @@ jQuery(function ($) {
             $('.offer__cats-menu').css("top", headerHeight);
         }
 
-        // initMenuPosition();
-        // $(window).on('resize', initMenuPosition);
-
         $('.offer__cats-menu .offer__cats-list > li')
             .on('mouseenter', function (e) {
+                console.log('hover');
                 e.preventDefault();
                 $('.offer__cats-menu .offer__cats-list > li').not(this).removeClass('active');
                 $(this).addClass('active');
+                if ($(this).find('.offer__cats-submenu').length === 0) {
+                   $(this).closest('.container').addClass('empty-cat');
+                } else {
+                  $(this).closest('.container').removeClass('empty-cat');
+                }
             });
 
         $('.more-view').on('click', function (e) {
@@ -809,6 +892,7 @@ jQuery(function ($) {
         });
 
         $('.offer .offer__cats > ul > li').hover(
+
             function () {
                 const $this = $(this);
                 $('.offer .offer__cats-submenu').hide();
@@ -817,12 +901,25 @@ jQuery(function ($) {
                 $this.addClass('active');
                 $('.offer').addClass('active');
                 $('.fixed-cat-menu-overlay').fadeIn(0);
-                $('.offer .offer__cats-link').hide();
+                $(this).addClass('active');
+                if ($(this).find('.offer__cats-submenu').length === 0) {
+                    $(this).closest('.offer').addClass('empty-cat');
+                    console.log(3333)
+                } else {
+                    $(this).closest('.offer').removeClass('empty-cat');
+                }
+                // $('.offer .offer__cats-link').hide();
             }
         );
 
         $('.offer').mouseleave(closeOfferMenu);
 
+        $(document)
+            .on('mouseenter', '.offer.empty-cat .offer__cats', function() {
+            })
+            .on('mouseleave', '.offer.empty-cat .offer__cats', function() {
+                closeOfferMenu();
+            });
         function closeOfferMenu() {
             $('.offer').removeClass('active');
             $('.offer .offer__cats > ul > li').removeClass('active');
@@ -898,6 +995,20 @@ jQuery(function ($) {
                 const $other = $(selector);
                 if ($other.length === 0) return 'Нема з чим порівняти.';
                 return $input.val() === $other.val() ? null : 'Не збігається.';
+            },
+            numeric: ($input) => {
+                const v = $.trim($input.val());
+                if (v === '') return null;
+                const re = /^\d+$/;
+                return re.test(v) ? null : 'Допускаються лише цифри.';
+            },
+            maxValue: ($input, param) => {
+                const v = $.trim($input.val());
+                if (v === '') return null;
+                const num = parseFloat(v);
+                const max = parseFloat(param);
+                if (isNaN(num) || isNaN(max)) return 'Некоректне число.';
+                return num <= max ? null : `Максимальне значення — ${max}.`;
             }
         };
 
@@ -1367,6 +1478,7 @@ jQuery(function ($) {
         initBrandsSliderModule();
         initTagsSliders();
         initMarksSliders();
+        initTooltipForDataElements();
         initTagsClickHandler();
         initProductCardsSliders();
         setupHeartClickHandler();
@@ -1396,6 +1508,7 @@ jQuery(function ($) {
         initFormValidation('#cart-form');
         initFormValidation('#contacts-form');
         initFormValidation('#profile-form');
+        initFormValidation('#bonus-form');
         // initColorOptionBtnSync();
         changeImageColor();
         initReminderTooltip();

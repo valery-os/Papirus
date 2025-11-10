@@ -1,0 +1,161 @@
+.auth-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__overlay {
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__content {
+        position: relative;
+        background: #F7F8F9;
+        width: 100%;
+        max-width: 375px;
+        margin: 0 23px 30px;
+        z-index: 10000;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    &__close {
+        position: absolute;
+        top: 15px;
+        right: 17px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    &__info {
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        a {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 18%;
+            color: $textBlue;
+            @media #{$tablet-max} {
+                font-size: 13px;
+            }
+        }
+    }
+    .btn {
+        margin-top: 20px;
+    }
+    &__fotm-login {
+        margin-bottom: 24px;
+    }
+    .form-group {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+    .auth-tab-content {
+        padding: 0 30px 30px;
+        @media #{$tablet-max} {
+            padding: 0 18px 20px;
+        }
+    }
+    &__divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 24px 0 8px;
+        &-line {
+            flex: 1;
+            height: 1px;
+            background-color: #D8E2EF;
+        }
+
+        &-text {
+            font-size: 13px;
+            white-space: nowrap;
+        }
+    }
+    &__social {
+        flex-direction: column;
+        gap: 8px;
+        a {
+            height: 48px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid #16489F;
+            color: $textColor;
+        }
+    }
+    @media #{$tablet-max} {
+        .btn {
+            height: 40px;
+            margin-top: 15px;
+        }
+    }
+}
+
+
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 0 24px;
+    @media #{$tablet-max} {
+        padding: 0 18px;
+    }
+    .auth-tab {
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.3s ease;
+        font-weight: 700;
+        font-size: 15px;
+        color: $textColor;
+        background: transparent;
+        position: relative;
+        @media #{$tablet-max} {
+            padding: 14px 18px;
+        }
+        &:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: transparent;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: block;
+            position: absolute;
+        }
+
+        &.active {
+            color: $textBlue;
+            font-weight: bold;
+            &:after {
+                background: $textBlue;
+            }
+        }
+
+        &:hover {
+            color: $textBlue;
+        }
+    }
+
+}
