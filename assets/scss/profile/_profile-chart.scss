@@ -21,6 +21,9 @@
         position: relative;
         font-size: 14px;
         &.current {
+            .profile__chart-sum, .profile__chart-discount, .profile__chart-bonus {
+                color: #fff;
+            }
             .profile__chart-bar {
                 background-color: #FF5650;
                 border-radius: 0 3px 3px 0;
@@ -34,6 +37,33 @@
                     transform: translateX(-100%);
                     background-color: #FF5650;
                     border-radius: 3px 0 0 3px;
+                }
+                &.blue {
+                    background: #16489F;
+                    &:before {
+                        background: #16489F;
+                    }
+                }
+                &.green {
+                    background: #8DC73F;
+                    &:before {
+                        background: #8DC73F;
+                    }
+                }
+                &.red {
+                    background: #FF5650;
+                    &:before {
+                        background: #FF5650;
+                    }
+                }
+                &.yellow {
+                    background: #FFD603;
+                    .profile__chart-sum, .profile__chart-discount, .profile__chart-bonus {
+                        color: #111;
+                    }
+                    &:before {
+                        background: #FFD603;
+                    }
                 }
             }
         }

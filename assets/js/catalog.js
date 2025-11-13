@@ -228,6 +228,13 @@ jQuery(function ($) {
             }
         });
     }
+
+    function sortCatalogArrows() {
+        $('.catalog__sort-arrows span').on('click', function() {
+            $(this).siblings('span').removeClass('active');
+            $(this).addClass('active');
+        });
+    }
     function initScripts() {
         initFilterRange({
             sliderSelector: '#filter-range',
@@ -250,6 +257,7 @@ jQuery(function ($) {
         filterToggle();
         initFilterLoading()
         syncProductCardColors();
+        sortCatalogArrows();
     }
     $(document).ready(initScripts);
 

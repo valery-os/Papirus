@@ -50,19 +50,19 @@
             width: auto;
             min-width: 150px;
 
-            //&.blue {
-            //    background: #16489F;
-            //}
-            //&.green {
-            //    background: #8DC73F;
-            //}
-            //&.red {
-            //    background: #FF5650;
-            //}
-            //&.yellow {
-            //    background: #FFD603;
-            //    color: #111;
-            //}
+            &.blue {
+                background: #16489F;
+            }
+            &.green {
+                background: #8DC73F;
+            }
+            &.red {
+                background: #FF5650;
+            }
+            &.yellow {
+                background: #FFD603;
+                color: #111;
+            }
         }
     }
     &-text {

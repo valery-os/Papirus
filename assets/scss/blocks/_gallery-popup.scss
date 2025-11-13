@@ -8,6 +8,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    .slider-button {
+        width: 30px;
+        height: 30px;
+        border-width: 2px;
+        &-next {
+            right: 15px;
+        }
+        &-prev {
+            left: 15px;
+        }
+    }
     &__overlay {
         background: rgba(0, 0, 0, 0.8);
         width: 100%;
@@ -145,12 +156,6 @@
         }
     }
     .slider-button {
-        &-prev {
-            left: 5px;
-        }
-        &-next {
-            right: 5px;
-        }
         &.swiper-button-disabled {
             opacity: 0.8;
             pointer-events: none;
@@ -249,7 +254,7 @@
         .slider-button {
             width: 30px;
             height: 30px;
-            border-width: 3px;
+            border-width: 2px;
             display: flex;
             &-prev {
                 left: -7px;

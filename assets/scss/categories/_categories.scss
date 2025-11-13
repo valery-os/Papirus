@@ -18,10 +18,10 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         img {
             width: 90%;
-            height: 100%;
+            height: 85%;
             object-fit: contain;
         }
     }

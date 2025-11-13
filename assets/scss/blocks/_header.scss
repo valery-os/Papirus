@@ -62,6 +62,7 @@
     &__menu-discount {
         gap: 5px;
         color: #FF5650;
+        align-items: center;
         transition: .3s ease;
         path {
             transition: .3s ease;
@@ -208,7 +209,9 @@
     }
     .search {
         position: relative;
-        width: calc(100% - 190px - 30px);
+        //width: calc(100% - 190px - 30px);
+        flex-grow: 1;
+        margin-right: 26px;
         &-form {
             width: 100%;
         }
@@ -275,6 +278,31 @@
             }
             &:hover {
                 transform: scale(1.05);
+            }
+            &-profile {
+                align-items: center;
+                gap: 8px;
+                position: relative;
+                cursor: pointer;
+                &>p {
+                    font-size: 15px;
+                    border: none;
+                    text-decoration: underline;
+                    text-decoration-style: dotted;
+                    text-decoration-thickness: 2px;
+                    text-underline-offset: 18%;
+                    color: #16489F;
+                }
+                .header__actions-btn {
+                    &:hover {
+                        transform: none;
+                    }
+                }
+                &:hover {
+                    p {
+                        text-decoration: none;
+                    }
+                }
             }
         }
     }

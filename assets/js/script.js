@@ -768,6 +768,21 @@ jQuery(function ($) {
         );
     }
 
+    function setupProfileMenu() {
+        $('.header__actions-btn-profile').hover(
+            function () {
+                $('.fixed-profile-menu-header').fadeIn(200);
+            },
+            function () {
+                setTimeout(function () {
+                    if (!$('.fixed-profile-menu-header').is(':hover')) {
+                        $('.fixed-profile-menu-header').fadeOut(200);
+                    }
+                }, 500);
+            }
+        );
+    }
+
     function setupMobileMenuToggle() {
         $('.menu-btn').on('click', function () {
             $('.mobile-menu').toggleClass('active');
@@ -1009,7 +1024,15 @@ jQuery(function ($) {
                 const max = parseFloat(param);
                 if (isNaN(num) || isNaN(max)) return 'Некоректне число.';
                 return num <= max ? null : `Максимальне значення — ${max}.`;
-            }
+            },
+            maxValueBonus: ($input, param) => {
+                const v = $.trim($input.val());
+                if (v === '') return null;
+                const num = parseFloat(v);
+                const max = parseFloat(param);
+                if (isNaN(num) || isNaN(max)) return 'Некоректне число.';
+                return num <= max ? null : `Недостатньо бонусів для використання`;
+            },
         };
 
         function parseRules(str) {
@@ -1089,6 +1112,106 @@ jQuery(function ($) {
             showError: (el, msg) => showError($(el), msg)
         };
     }
+
+    function initResetPromocodeButton() {
+        const $button = $('.added-promocode');
+        if ($button.length === 0) return;
+
+        $button.on('click', function () {
+            const $cartSumList = $('.cart__sum-list');
+            $cartSumList.find('.cart__sum-item.promo-discount').remove();
+
+            const $form = $('#promocode-form');
+            const $input = $form.find('input');
+            const $group = $input.closest('.form-group');
+            const $error = $group.find('.validation-error');
+            const $buttonForm = $form.find('.cart__sum-promocode-form-btn');
+
+            $buttonForm.removeClass('added-promocode').text('Застосувати');
+            $form.removeClass('success');
+            $input.val('');
+
+            $group.removeClass('error-field');
+            $input.removeClass('invalid');
+            $error.text('');
+            $form.removeClass('success');
+        });
+    };
+
+    function initPromocodeForm() {
+        const $form = $('#promocode-form');
+        if ($form.length === 0) return;
+
+        const $button = $form.find('.cart__sum-promocode-form-btn');
+        const $input = $form.find('input');
+        const $group = $input.closest('.form-group');
+        const $error = $group.find('.validation-error');
+        const $cartSumList = $('.cart__sum-list');
+
+        const validCodes = {
+            'SALE2025': 300.00,
+            'DISCOUNT10': 150.00,
+            'WELCOME': 100.00
+        };
+
+        $form.on('submit', function (e) {
+            e.preventDefault();
+
+            if ($button.hasClass('added-promocode')) {
+                $cartSumList.find('.cart__sum-item.promo-discount').remove();
+                $button.removeClass('added-promocode').text('Застосувати');
+                $form.removeClass('success');
+                $input.val('');
+                return;
+            }
+
+            const code = $.trim($input.val());
+
+            $group.removeClass('error-field');
+            $input.removeClass('invalid');
+            $error.text('');
+            $form.removeClass('success');
+            $cartSumList.find('.cart__sum-item.promo-discount').remove();
+
+            if (code === '') {
+                $group.addClass('error-field');
+                $input.addClass('invalid');
+                $error.text('Це поле є обовʼязковим.');
+                return;
+            }
+
+            if (validCodes.hasOwnProperty(code)) {
+                const discount = validCodes[code];
+
+                const discountHtml = `
+                <div class="cart__sum-item promo-discount">
+                    <p class="cart__sum-item-title">
+                        Знижка по промокоду:
+                    </p>
+                    <span class="cart__sum-item-value">
+                        ${discount.toFixed(2)} ₴
+                    </span>
+                </div>
+            `;
+
+                const $target = $cartSumList.find('.cart__sum-item.cart__sum-item-full').first();
+                if ($target.length) {
+                    $(discountHtml).insertBefore($target);
+                } else {
+                    $cartSumList.append(discountHtml);
+                }
+
+                $form.addClass('success');
+                $button.addClass('added-promocode').text('Відмінити');
+
+            } else {
+                $group.addClass('error-field');
+                $input.addClass('invalid');
+                $error.text('Промокод введено невірно');
+            }
+        });
+    }
+
 
     document.querySelectorAll('textarea').forEach(el => {
         if (el.value.trim() !== '') {
@@ -1488,6 +1611,7 @@ jQuery(function ($) {
         setupAuthPopup();
         setupPasswordToggle();
         setupCartPopupHover();
+        setupProfileMenu();
         setupMobileMenuToggle();
         initCatalogMenu();
         showAllCategories();
@@ -1504,11 +1628,12 @@ jQuery(function ($) {
         initFormValidation('#form-review');
         initFormValidation('#cart-add-sku-form');
         initFormValidation('#cart-download');
-        initFormValidation('#promocode-form');
         initFormValidation('#cart-form');
         initFormValidation('#contacts-form');
         initFormValidation('#profile-form');
         initFormValidation('#bonus-form');
+        initPromocodeForm();
+        initResetPromocodeButton();
         // initColorOptionBtnSync();
         changeImageColor();
         initReminderTooltip();

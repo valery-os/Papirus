@@ -57,8 +57,11 @@
 
         }
         &.show {
-
+            height: 100%;
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+            .product-card__bonus {
+                display: none;
+            }
             .btn-buy {
                 background-color: #F9B50B;
                 width: 102px;
@@ -79,6 +82,17 @@
     &__image {
         width: 100%;
         position: relative;
+        height: 215px;
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+        @media (max-width: 450px) {
+            height: 175px;
+        }
+        @media (max-width: 390px) {
+            height: 140px;
+        }
     }
     &__content {
         position: relative;
@@ -331,7 +345,7 @@
     &__hidden {
         display: none;
         position: absolute;
-        bottom: 35px;
+        bottom: 0px;
         left: 0;
         width: 100%;
         background: #fff;
@@ -496,7 +510,6 @@
         padding: 13px;
         &__hidden {
             padding: 0 13px 13px;
-            bottom: 30px;
         }
         &__labels {
             gap: 4px;

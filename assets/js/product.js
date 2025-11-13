@@ -71,7 +71,18 @@ jQuery(function ($) {
             $('.product-about__description-text').removeClass('product-about__description-text-hidden');
             $('.product-about__description-more').show();
             $('.product-about__column-description').addClass(('active'))
-            $(this).remove();
+            $(this).hide();
+            $('.product-about__description-btn-hide').show();
+        });
+    }
+
+    function hideDescription() {
+        $('.product-about__description-btn-hide').on('click', function() {
+            $('.product-about__description-text').addClass('product-about__description-text-hidden');
+            $('.product-about__description-more').hide();
+            $('.product-about__column-description').removeClass('active');
+            $(this).hide();
+            $('.product-about__description-btn').show();
         });
     }
 
@@ -283,7 +294,6 @@ jQuery(function ($) {
                 lastScrollTop = currentScroll;
             });
 
-            // Обновляем lastScrollTop при обычном скролле страницы
             $(window).on('scroll', function() {
                 lastScrollTop = $(this).scrollTop();
             });
@@ -330,6 +340,7 @@ jQuery(function ($) {
         initGalleryPopup();
         initProductMenuScroll();
         initShowProductActionsMenu();
+        hideDescription();
     }
     $(document).ready(initScripts);
 

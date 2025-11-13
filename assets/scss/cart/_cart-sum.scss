@@ -67,6 +67,9 @@
             }
             &-btn {
                 width: 169px;
+                &.added-promocode {
+                    background: #E5EEFB;
+                }
             }
             @media (max-width: 767px) {
                 padding-bottom: 15px;

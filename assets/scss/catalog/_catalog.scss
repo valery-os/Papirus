@@ -26,10 +26,33 @@
         justify-content: space-between;
         margin-bottom: 7px;
     }
+    &__sort-arrows {
+        margin-right: 8px;
+        align-items: center;
+        &>span {
+            cursor: pointer;
+            path {
+                transition: .3s ease;
+            }
+            &:hover {
+                path {
+                    stroke: #16489F;
+                }
+            }
+            &.active {
+                path {
+                    stroke: #16489F;
+                }
+            }
+        }
+        @media (max-width: 991px) {
+            flex-direction: row!important;
+        }
+    }
     &__sort-block {
         align-items: center;
         svg {
-            margin-right: 8px;
+            //margin-right: 8px;
         }
         p {
             line-height: 1.0;
@@ -377,11 +400,6 @@
         &__sort-block {
             p, div {
                 font-size: 14px;
-            }
-            svg {
-                margin-right: 4px;
-                width: 20px;
-                height: 20px;
             }
             .nice-select {
                 padding-right: 20px;

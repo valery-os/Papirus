@@ -1,6 +1,17 @@
 .product__gallery {
     background-color: #fff;
     position: relative;
+    .slider-button {
+        width: 30px;
+        height: 30px;
+        border-width: 2px;
+        &-next {
+            right: -15px;
+        }
+        &-prev {
+            left: -15px;
+        }
+    }
     .product-slider {
         .swiper-slide {
             cursor: pointer;
