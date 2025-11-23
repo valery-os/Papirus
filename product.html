@@ -9644,8 +9644,9 @@
 
     <main id="main">
 
-        <div class="breadcrumbs">
-            <div class="container">
+        <div class="container product-container">
+            <div class="breadcrumbs">
+
                 <ul class="breadcrumbs__list df">
                     <li class="breadcrumbs__home">
                         <a href="#">
@@ -9713,82 +9714,81 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="product-menu" id="product-menu">
-            <div class="container">
-                <div class="product-menu__wrapper df">
-                    <div class="product-menu__list df">
-                        <a href="#info" class="active">
-                            Огляд
-                        </a>
-                        <a href="#description">
-                            Опис
-                        </a>
-                        <a href="#characteristics">
-                            Характеристики
-                        </a>
-                        <a href="#reviews">
-                            Відгуки <span>11</span>
-                        </a>
-                        <a href="#buy">
-                            Купують разом
-                        </a>
-                    </div>
+            <div class="product-menu" id="product-menu">
+                <div class="container">
+                    <div class="product-menu__wrapper df">
+                        <div class="product-menu__list df">
+                            <a href="#info" class="active">
+                                Огляд
+                            </a>
+                            <a href="#description">
+                                Опис
+                            </a>
+                            <a href="#characteristics">
+                                Характеристики
+                            </a>
+                            <a href="#reviews">
+                                Відгуки <span>11</span>
+                            </a>
+                            <a href="#buy">
+                                Купують разом
+                            </a>
+                        </div>
 
-                    <div class="product-menu__right df">
-                        <img class="product-menu__img" src="assets/img/product/1.png" />
-                        <div class="product-menu__price price sale">
-                            <div class="df price-sale">
-                                <span>540.00 ₴</span>
-                                <div>-40%</div>
+                        <div class="product-menu__right df">
+                            <img class="product-menu__img" src="assets/img/product/1.png" />
+                            <div class="product-menu__price price sale">
+                                <div class="df price-sale">
+                                    <span>540.00 ₴</span>
+                                    <div>-40%</div>
+                                </div>
+                                <b>
+                                    230.75 ₴
+                                </b>
                             </div>
-                            <b>
-                                230.75 ₴
-                            </b>
-                        </div>
-                        <div class="input-counter df">
-                            <button type="button"
-                                    class="input-counter__btn input-counter__btn--minus"
-                                    aria-label="Уменьшить">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="16" height="16" rx="8" fill="#D9E3E8"
-                                          fill-opacity="0.25"/>
-                                    <path d="M11.9275 7.4654V8.53683C11.9275 8.68564 11.8754 8.81213 11.7712 8.91629C11.667 9.02046 11.5406 9.07254 11.3917 9.07254H4.60603C4.45722 9.07254 4.33073 9.02046 4.22656 8.91629C4.1224 8.81213 4.07031 8.68564 4.07031 8.53683V7.4654C4.07031 7.31659 4.1224 7.1901 4.22656 7.08594C4.33073 6.98177 4.45722 6.92969 4.60603 6.92969H11.3917C11.5406 6.92969 11.667 6.98177 11.7712 7.08594C11.8754 7.1901 11.9275 7.31659 11.9275 7.4654Z"
-                                          fill="#9CA5B5"/>
-                                </svg>
-                            </button>
+                            <div class="input-counter df">
+                                <button type="button"
+                                        class="input-counter__btn input-counter__btn--minus"
+                                        aria-label="Уменьшить">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="16" height="16" rx="8" fill="#D9E3E8"
+                                              fill-opacity="0.25"/>
+                                        <path d="M11.9275 7.4654V8.53683C11.9275 8.68564 11.8754 8.81213 11.7712 8.91629C11.667 9.02046 11.5406 9.07254 11.3917 9.07254H4.60603C4.45722 9.07254 4.33073 9.02046 4.22656 8.91629C4.1224 8.81213 4.07031 8.68564 4.07031 8.53683V7.4654C4.07031 7.31659 4.1224 7.1901 4.22656 7.08594C4.33073 6.98177 4.45722 6.92969 4.60603 6.92969H11.3917C11.5406 6.92969 11.667 6.98177 11.7712 7.08594C11.8754 7.1901 11.9275 7.31659 11.9275 7.4654Z"
+                                              fill="#9CA5B5"/>
+                                    </svg>
+                                </button>
 
-                            <input type="number" class="input-counter__field" value="1" min="1"
-                                   max="999"/>
+                                <input type="number" class="input-counter__field" value="1" min="1"
+                                       max="999"/>
 
-                            <button type="button"
-                                    class="input-counter__btn input-counter__btn--plus"
-                                    aria-label="Увеличить">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="16" height="16" rx="8" fill="#FF5650"/>
-                                    <path d="M11.9275 7.46317V8.5346C11.9275 8.68341 11.8754 8.8099 11.7712 8.91406C11.667 9.01823 11.5406 9.07031 11.3917 9.07031H9.07031V11.3917C9.07031 11.5406 9.01823 11.667 8.91406 11.7712C8.8099 11.8754 8.68341 11.9275 8.5346 11.9275H7.46317C7.31436 11.9275 7.18787 11.8754 7.08371 11.7712C6.97954 11.667 6.92746 11.5406 6.92746 11.3917V9.07031H4.60603C4.45722 9.07031 4.33073 9.01823 4.22656 8.91406C4.1224 8.8099 4.07031 8.68341 4.07031 8.5346V7.46317C4.07031 7.31436 4.1224 7.18787 4.22656 7.08371C4.33073 6.97954 4.45722 6.92746 4.60603 6.92746H6.92746V4.60603C6.92746 4.45722 6.97954 4.33073 7.08371 4.22656C7.18787 4.1224 7.31436 4.07031 7.46317 4.07031H8.5346C8.68341 4.07031 8.8099 4.1224 8.91406 4.22656C9.01823 4.33073 9.07031 4.45722 9.07031 4.60603V6.92746H11.3917C11.5406 6.92746 11.667 6.97954 11.7712 7.08371C11.8754 7.18787 11.9275 7.31436 11.9275 7.46317Z"
-                                          fill="white"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <button class="btn-buy btn-product-buy">
+                                <button type="button"
+                                        class="input-counter__btn input-counter__btn--plus"
+                                        aria-label="Увеличить">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="16" height="16" rx="8" fill="#FF5650"/>
+                                        <path d="M11.9275 7.46317V8.5346C11.9275 8.68341 11.8754 8.8099 11.7712 8.91406C11.667 9.01823 11.5406 9.07031 11.3917 9.07031H9.07031V11.3917C9.07031 11.5406 9.01823 11.667 8.91406 11.7712C8.8099 11.8754 8.68341 11.9275 8.5346 11.9275H7.46317C7.31436 11.9275 7.18787 11.8754 7.08371 11.7712C6.97954 11.667 6.92746 11.5406 6.92746 11.3917V9.07031H4.60603C4.45722 9.07031 4.33073 9.01823 4.22656 8.91406C4.1224 8.8099 4.07031 8.68341 4.07031 8.5346V7.46317C4.07031 7.31436 4.1224 7.18787 4.22656 7.08371C4.33073 6.97954 4.45722 6.92746 4.60603 6.92746H6.92746V4.60603C6.92746 4.45722 6.97954 4.33073 7.08371 4.22656C7.18787 4.1224 7.31436 4.07031 7.46317 4.07031H8.5346C8.68341 4.07031 8.8099 4.1224 8.91406 4.22656C9.01823 4.33073 9.07031 4.45722 9.07031 4.60603V6.92746H11.3917C11.5406 6.92746 11.667 6.97954 11.7712 7.08371C11.8754 7.18787 11.9275 7.31436 11.9275 7.46317Z"
+                                              fill="white"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="btn-buy btn-product-buy">
                             <span>
                                 Додати в кошик
                             </span>
-                        </button>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <section class="product">
-            <div class="container">
+
+            <section class="product">
                 <div class="product__wrapp df" id="info">
                     <div class="product__info-mobile product__info-block">
-                        <h1 class="product__info-title">
+                        <p class="product__info-title">
                             Папір для плотерів рулонний СУ 80-610/50,8 (50м)
-                        </h1>
+                        </p>
                         <div class="product__info-mobile-details df">
                             <div>
                                 <img src="assets/img/product/brand1.png" alt="">
@@ -10287,14 +10287,12 @@
                         </div>
                     </div>
                 </div>
+            </section>
 
-            </div>
-        </section>
-        <section class="product-related">
-            <div class="container">
-                    <h2 class="product-related__title">
-                        До цього товару підходить
-                    </h2>
+            <section class="product-related">
+                <h2 class="product-related__title">
+                    До цього товару підходить
+                </h2>
                 <div class="product-related__list">
                     <div class="swiper product-related-slider">
                         <div class="swiper-wrapper">
@@ -10518,10 +10516,9 @@
                         <div class="swiper-scrollbar"></div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="product-about">
-            <div class="container">
+
+            </section>
+            <section class="product-about">
                 <div class="product-about__wrapp df">
                     <div class="product-about__column product-about__column-table" id="characteristics">
                         <h2 class="product-about__title">
@@ -10671,255 +10668,253 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="product-reviews">
-            <div class="container">
+
+            </section>
+            <section class="product-reviews">
                 <div class="product-reviews__wrapper df" id="reviews">
-                    <div class="product-reviews__column product-reviews__column-list">
-                        <h2 class="product-reviews__title">
-                            Відгуки про <span>Папір офісний Double A A4 80г/м2, 500 арк., клас A</span>
-                        </h2>
-                        <div class="product-reviews__block" >
-                            <ul class="product-reviews__list">
-                                <li class="product-reviews__item">
-                                    <div class="product-reviews__item-top df">
-                                        <p class="product-reviews__item-title">
-                                            Сергей Блинков
-                                        </p>
-                                        <span class="product-reviews__item-date">
-                                            11.05.2025
-                                        </span>
-                                        <div class="product-reviews__item-rating">
-                                            <div class="rating">
-                                                <div class="rating__body">
-                                                    <div class="rating__active" style="width: 100%;"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1" name="rating">
-                                                        <input type="radio" class="rating__item" value="2" name="rating">
-                                                        <input type="radio" class="rating__item" value="3" name="rating">
-                                                        <input type="radio" class="rating__item" value="4" name="rating">
-                                                        <input type="radio" class="rating__item" value="5" name="rating">
+                        <div class="product-reviews__column product-reviews__column-list">
+                            <h2 class="product-reviews__title">
+                                Відгуки про <span>Папір офісний Double A A4 80г/м2, 500 арк., клас A</span>
+                            </h2>
+                            <div class="product-reviews__block" >
+                                <ul class="product-reviews__list">
+                                    <li class="product-reviews__item">
+                                        <div class="product-reviews__item-top df">
+                                            <p class="product-reviews__item-title">
+                                                Сергей Блинков
+                                            </p>
+                                            <span class="product-reviews__item-date">
+                                                11.05.2025
+                                            </span>
+                                            <div class="product-reviews__item-rating">
+                                                <div class="rating">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active" style="width: 100%;"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p class="product-reviews__item-text">
-                                        Случайно попробовал эту бумагу, всем советую очень качественная. Рекомендую эту бумагу и магазин Папирус, спасибо за быструю доставку также!
-                                    </p>
-                                    <a href="" class="product-reviews__item-btn">
-                                        Ответить
-                                    </a>
-                                </li>
-                                <li class="product-reviews__item">
-                                    <div class="product-reviews__item-top df">
-                                        <p class="product-reviews__item-title">
-                                            Сергей Блинков
+                                        <p class="product-reviews__item-text">
+                                            Случайно попробовал эту бумагу, всем советую очень качественная. Рекомендую эту бумагу и магазин Папирус, спасибо за быструю доставку также!
                                         </p>
-                                        <span class="product-reviews__item-date">
-                                            11.05.2025
-                                        </span>
-                                        <div class="product-reviews__item-rating">
-                                            <div class="rating">
-                                                <div class="rating__body">
-                                                    <div class="rating__active" style="width: 100%;"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1" name="rating">
-                                                        <input type="radio" class="rating__item" value="2" name="rating">
-                                                        <input type="radio" class="rating__item" value="3" name="rating">
-                                                        <input type="radio" class="rating__item" value="4" name="rating">
-                                                        <input type="radio" class="rating__item" value="5" name="rating">
+                                        <a href="" class="product-reviews__item-btn">
+                                            Ответить
+                                        </a>
+                                    </li>
+                                    <li class="product-reviews__item">
+                                        <div class="product-reviews__item-top df">
+                                            <p class="product-reviews__item-title">
+                                                Сергей Блинков
+                                            </p>
+                                            <span class="product-reviews__item-date">
+                                                11.05.2025
+                                            </span>
+                                            <div class="product-reviews__item-rating">
+                                                <div class="rating">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active" style="width: 100%;"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p class="product-reviews__item-text">
-                                        Усе сподобалось, рекомендую!
-                                    </p>
-                                    <a href="" class="product-reviews__item-btn">
-                                        Ответить
-                                    </a>
-                                </li>
-                                <li class="product-reviews__item">
-                                    <div class="product-reviews__item-top df">
-                                        <p class="product-reviews__item-title">
-                                            Сергей Блинков
+                                        <p class="product-reviews__item-text">
+                                            Усе сподобалось, рекомендую!
                                         </p>
-                                        <span class="product-reviews__item-date">
-                                            11.05.2025
-                                        </span>
-                                        <div class="product-reviews__item-rating">
-                                            <div class="rating">
-                                                <div class="rating__body">
-                                                    <div class="rating__active" style="width: 100%;"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1" name="rating">
-                                                        <input type="radio" class="rating__item" value="2" name="rating">
-                                                        <input type="radio" class="rating__item" value="3" name="rating">
-                                                        <input type="radio" class="rating__item" value="4" name="rating">
-                                                        <input type="radio" class="rating__item" value="5" name="rating">
+                                        <a href="" class="product-reviews__item-btn">
+                                            Ответить
+                                        </a>
+                                    </li>
+                                    <li class="product-reviews__item">
+                                        <div class="product-reviews__item-top df">
+                                            <p class="product-reviews__item-title">
+                                                Сергей Блинков
+                                            </p>
+                                            <span class="product-reviews__item-date">
+                                                11.05.2025
+                                            </span>
+                                            <div class="product-reviews__item-rating">
+                                                <div class="rating">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active" style="width: 100%;"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p class="product-reviews__item-text">
-                                        Якісний папір, для моїх цілей підійшов
-                                    </p>
-                                    <a href="" class="product-reviews__item-btn">
-                                        Ответить
-                                    </a>
-                                </li>
-                                <li class="product-reviews__item hidden">
-                                    <div class="product-reviews__item-top df">
-                                        <p class="product-reviews__item-title">
-                                            Сергей Блинков
+                                        <p class="product-reviews__item-text">
+                                            Якісний папір, для моїх цілей підійшов
                                         </p>
-                                        <span class="product-reviews__item-date">
-                                            11.05.2025
-                                        </span>
-                                        <div class="product-reviews__item-rating">
-                                            <div class="rating">
-                                                <div class="rating__body">
-                                                    <div class="rating__active" style="width: 100%;"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1" name="rating">
-                                                        <input type="radio" class="rating__item" value="2" name="rating">
-                                                        <input type="radio" class="rating__item" value="3" name="rating">
-                                                        <input type="radio" class="rating__item" value="4" name="rating">
-                                                        <input type="radio" class="rating__item" value="5" name="rating">
+                                        <a href="" class="product-reviews__item-btn">
+                                            Ответить
+                                        </a>
+                                    </li>
+                                    <li class="product-reviews__item hidden">
+                                        <div class="product-reviews__item-top df">
+                                            <p class="product-reviews__item-title">
+                                                Сергей Блинков
+                                            </p>
+                                            <span class="product-reviews__item-date">
+                                                11.05.2025
+                                            </span>
+                                            <div class="product-reviews__item-rating">
+                                                <div class="rating">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active" style="width: 100%;"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p class="product-reviews__item-text">
-                                        Якісний папір, для моїх цілей підійшов
-                                    </p>
-                                    <a href="" class="product-reviews__item-btn">
-                                        Ответить
-                                    </a>
-                                </li>
-                                <li class="product-reviews__item hidden">
-                                    <div class="product-reviews__item-top df">
-                                        <p class="product-reviews__item-title">
-                                            Сергей Блинков
+                                        <p class="product-reviews__item-text">
+                                            Якісний папір, для моїх цілей підійшов
                                         </p>
-                                        <span class="product-reviews__item-date">
-                                            11.05.2025
-                                        </span>
-                                        <div class="product-reviews__item-rating">
-                                            <div class="rating">
-                                                <div class="rating__body">
-                                                    <div class="rating__active" style="width: 100%;"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1" name="rating">
-                                                        <input type="radio" class="rating__item" value="2" name="rating">
-                                                        <input type="radio" class="rating__item" value="3" name="rating">
-                                                        <input type="radio" class="rating__item" value="4" name="rating">
-                                                        <input type="radio" class="rating__item" value="5" name="rating">
+                                        <a href="" class="product-reviews__item-btn">
+                                            Ответить
+                                        </a>
+                                    </li>
+                                    <li class="product-reviews__item hidden">
+                                        <div class="product-reviews__item-top df">
+                                            <p class="product-reviews__item-title">
+                                                Сергей Блинков
+                                            </p>
+                                            <span class="product-reviews__item-date">
+                                                11.05.2025
+                                            </span>
+                                            <div class="product-reviews__item-rating">
+                                                <div class="rating">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active" style="width: 100%;"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <p class="product-reviews__item-text">
-                                        Якісний папір, для моїх цілей підійшов
-                                    </p>
-                                    <a href="" class="product-reviews__item-btn">
-                                        Ответить
-                                    </a>
-                                </li>
-                                <li class="product-reviews__item hidden">
-                                    <div class="product-reviews__item-top df">
-                                        <p class="product-reviews__item-title">
-                                            Сергей Блинков
+                                        <p class="product-reviews__item-text">
+                                            Якісний папір, для моїх цілей підійшов
                                         </p>
-                                        <span class="product-reviews__item-date">
-                                            11.05.2025
-                                        </span>
-                                        <div class="product-reviews__item-rating">
-                                            <div class="rating">
-                                                <div class="rating__body">
-                                                    <div class="rating__active" style="width: 100%;"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1" name="rating">
-                                                        <input type="radio" class="rating__item" value="2" name="rating">
-                                                        <input type="radio" class="rating__item" value="3" name="rating">
-                                                        <input type="radio" class="rating__item" value="4" name="rating">
-                                                        <input type="radio" class="rating__item" value="5" name="rating">
+                                        <a href="" class="product-reviews__item-btn">
+                                            Ответить
+                                        </a>
+                                    </li>
+                                    <li class="product-reviews__item hidden">
+                                        <div class="product-reviews__item-top df">
+                                            <p class="product-reviews__item-title">
+                                                Сергей Блинков
+                                            </p>
+                                            <span class="product-reviews__item-date">
+                                                11.05.2025
+                                            </span>
+                                            <div class="product-reviews__item-rating">
+                                                <div class="rating">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active" style="width: 100%;"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <p class="product-reviews__item-text">
+                                            Якісний папір, для моїх цілей підійшов
+                                        </p>
+                                        <a href="" class="product-reviews__item-btn">
+                                            Ответить
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="product-reviews__more-btn-wrapper df">
+                                    <button class="product-reviews__more-btn">
+                                        Читати всі відгуки про товар
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 6.5L8 10.5L4 6.5" stroke="#16489F" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-reviews__column product-reviews__column-form">
+                            <h2 class="product-reviews__title">
+                                Залишити відгук
+                            </h2>
+                            <div class="product-reviews__block">
+                                <form action="#" class="product-reviews__form" id="form-review">
+                                    <div class="product-reviews__inputs">
+                                        <div class="form-group">
+                                            <div class="form-group__input-wrapper">
+                                                <input type="text" id="rev-name" required placeholder="" data-validate="required"/>
+                                                <label for="rev-name">Ваше ім’я</label>
+                                            </div>
+                                            <span class="validation-error"></span>
+                                        </div>
+                                        <div class="form-group form-group-textarea-wrapper product-reviews__textarea-wrapper">
+                                            <div class="form-group__input-wrapper df">
+                                                <textarea name="rev-text" id="rev-text" cols="" rows="" data-validate="required" >
+
+                                                </textarea>
+                                                <span class="validation-error"></span>
+                                                <label for="rev-text">Опишіть свої враження</label>
+                                                <div class="rating rating--to-set">
+                                                    <div class="rating__body">
+                                                        <div class="rating__active" style="width: 0%;"></div>
+                                                        <div class="rating__items">
+                                                            <input type="radio" class="rating__item" value="1" name="rating">
+                                                            <input type="radio" class="rating__item" value="2" name="rating">
+                                                            <input type="radio" class="rating__item" value="3" name="rating">
+                                                            <input type="radio" class="rating__item" value="4" name="rating">
+                                                            <input type="radio" class="rating__item" value="5" name="rating">
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-reviews__rating-text"></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="product-reviews__item-text">
-                                        Якісний папір, для моїх цілей підійшов
-                                    </p>
-                                    <a href="" class="product-reviews__item-btn">
-                                        Ответить
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="product-reviews__more-btn-wrapper df">
-                                <button class="product-reviews__more-btn">
-                                    Читати всі відгуки про товар
-                                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 6.5L8 10.5L4 6.5" stroke="#16489F" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </button>
+
+                                    <button type="submit" class="btn df">Оставить отзыв</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="product-reviews__column product-reviews__column-form">
-                        <h2 class="product-reviews__title">
-                            Залишити відгук
-                        </h2>
-                        <div class="product-reviews__block">
-                            <form action="#" class="product-reviews__form" id="form-review">
-                                <div class="product-reviews__inputs">
-                                    <div class="form-group">
-                                        <div class="form-group__input-wrapper">
-                                            <input type="text" id="rev-name" required placeholder="" data-validate="required"/>
-                                            <label for="rev-name">Ваше ім’я</label>
-                                        </div>
-                                        <span class="validation-error"></span>
-                                    </div>
-                                    <div class="form-group form-group-textarea-wrapper product-reviews__textarea-wrapper">
-                                        <div class="form-group__input-wrapper df">
-                                            <textarea name="rev-text" id="rev-text" cols="" rows="" data-validate="required" >
+            </section>
 
-                                            </textarea>
-                                            <span class="validation-error"></span>
-                                            <label for="rev-text">Опишіть свої враження</label>
-                                            <div class="rating rating--to-set">
-                                                <div class="rating__body">
-                                                    <div class="rating__active" style="width: 0%;"></div>
-                                                    <div class="rating__items">
-                                                        <input type="radio" class="rating__item" value="1" name="rating">
-                                                        <input type="radio" class="rating__item" value="2" name="rating">
-                                                        <input type="radio" class="rating__item" value="3" name="rating">
-                                                        <input type="radio" class="rating__item" value="4" name="rating">
-                                                        <input type="radio" class="rating__item" value="5" name="rating">
-                                                    </div>
-                                                </div>
-                                                <div class="product-reviews__rating-text"></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn df">Оставить отзыв</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="container product-container">
             <section class="product-cards product-products-list">
                 <div class="product-cards__wrapper df">
                     <div class="product-cards__top df">
@@ -10932,6 +10927,11 @@
                         </a>
                     </div>
                     <div class="product-cards__tags tags">
+                        <div class="slider-button slider-button-prev df">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 12L6 8L10 4" stroke="#16489F" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <div class="swiper tags-slider">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -13906,6 +13906,7 @@
                 </div>
             </section>
         </div>
+
     </main>
 
     <footer class="footer product-footer">

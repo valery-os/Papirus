@@ -12,6 +12,9 @@
             left: -15px;
         }
     }
+    .swiper-button-disabled {
+        display: none;
+    }
     .product-slider {
         .swiper-slide {
             cursor: pointer;

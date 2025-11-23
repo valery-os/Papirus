@@ -309,6 +309,16 @@ button {
 .tags {
     position: relative;
     z-index: 0;
+    &.prev-disabled {
+        &:after {
+            display: none;
+        }
+    }
+    &.next-disabled {
+        &:before {
+            display: none;
+        }
+    }
     &-slider .swiper-slide {
         width: auto;
         flex-shrink: 0;
@@ -345,6 +355,17 @@ button {
         transform: translateY(-50%);
         z-index: 9;
     }
+    &:after {
+        content: '';
+        background: linear-gradient(270deg, rgba(247, 248, 249, 0) 0%, #F7F8F9 73.48%);
+        width: 108px;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 9;
+    }
     svg {
         position: relative;
         z-index: 10;
@@ -360,6 +381,9 @@ button {
         &-prev {
             left: 0px;
         }
+    }
+    .swiper-button-disabled {
+        display: none;
     }
     @media #{$tablet-max} {
         &:before {

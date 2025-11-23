@@ -80,23 +80,35 @@ jQuery(function ($) {
         });
     }
 
-    function initShowMoreBonuses() {
-        $(document).on('click', '.discount__show-more button', function() {
-            var $this = $(this);
-            var target = $('.discount__hidden');
+    function initDiscountToggle() {
+        const $container = $(".discount__show-more");
+        if ($container.length === 0) return;
 
-            if (target.is(':visible')) {
-                target.slideUp();
-                $this.removeClass('active')
+        const $rows = $container.find(".profile__orders-row");
+        const $btn = $container.find("button");
+        const $btnText = $btn.find("span");
+
+        if ($rows.length <= 2 || $btn.length === 0) return;
+
+        const textShow = $btnText.text();            // "Докладніше"
+        const textHide = $btn.data("text") || "Приховати";
+
+        // скрываем строки начиная с 3-й
+        const $hiddenRows = $rows.slice(2);
+        $hiddenRows.hide();
+
+        $btn.on("click", function () {
+            const isActive = $btn.hasClass("active");
+
+            $hiddenRows.stop(true, true).slideToggle(250);
+
+            if (isActive) {
+                $btn.removeClass("active");
+                $btnText.text(textShow);
             } else {
-                target.slideDown().css('display', 'flex');
-                $(this).addClass('active');
+                $btn.addClass("active");
+                $btnText.text(textHide);
             }
-
-            var nowText = $.trim($this.find('span').text());
-            var newText = $this.attr('data-text');
-            $this.find('span').text(newText);
-            $this.attr('data-text', nowText);
         });
     }
 
@@ -107,7 +119,7 @@ jQuery(function ($) {
         initProfileOrdersCheckAll();
         initOpenDetailsOrder();
         sortButtonOffers();
-        initShowMoreBonuses();
+        initDiscountToggle();
     }
     $(document).ready(initScripts);
 

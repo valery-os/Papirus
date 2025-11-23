@@ -27,6 +27,7 @@
     &-title {
         width: calc(100% - 90px);
         font-size: clamp(19px, 2.5vw, 24px);
+        font-weight: 700;
     }
     &-top {
         justify-content: space-between;

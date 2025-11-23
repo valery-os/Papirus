@@ -536,17 +536,56 @@ jQuery(function ($) {
             if (!tagsContainer) return;
 
             const nextBtn = tagsContainer.querySelector('.slider-button-next');
+            const prevBtn = tagsContainer.querySelector('.slider-button-prev');
 
-            new Swiper(sliderEl, {
+            const swiper = new Swiper(sliderEl, {
                 slidesPerView: 'auto',
                 freeMode: true,
                 spaceBetween: 5,
-                navigation: {
+                navigation: nextBtn && prevBtn ? {
                     nextEl: nextBtn,
+                    prevEl: prevBtn,
+                } : false,
+                on: {
+                    init() {
+                        updateButtonsState();
+                    },
+                    slideChange() {
+                        updateButtonsState();
+                    },
+                    reachEnd() {
+                        updateButtonsState();
+                    },
+                    reachBeginning() {
+                        updateButtonsState();
+                    },
+                    touchEnd() {
+                        updateButtonsState();
+                    },
+                    transitionEnd() {
+                        updateButtonsState();
+                    },
                 },
             });
+
+            function updateButtonsState() {
+                if (!nextBtn || !prevBtn) return;
+
+                if (prevBtn.classList.contains('swiper-button-disabled')) {
+                    tagsContainer.classList.add('prev-disabled');
+                } else {
+                    tagsContainer.classList.remove('prev-disabled');
+                }
+
+                if (nextBtn.classList.contains('swiper-button-disabled')) {
+                    tagsContainer.classList.add('next-disabled');
+                } else {
+                    tagsContainer.classList.remove('next-disabled');
+                }
+            }
         });
     }
+
 
     function initTagsClickHandler() {
         $('.tags__tag').off('click').on('click', function () {
@@ -570,7 +609,7 @@ jQuery(function ($) {
     }
 
     function initTooltipForDataElements() {
-        const $elements = $('[data-tooltip]');
+        const $elements = $('[data-tooltip]:not(.stronger__item)');
         if ($elements.length === 0) return;
 
         const $tooltip = $('<div id="tooltip-mark" class="tooltip-mark"></div>').appendTo('body');

@@ -35,6 +35,7 @@
         padding: clamp(16px, 2vw, 30px);
         flex-direction: column;
         align-items: flex-start;
+        gap: clamp(20px, 2vw, 30px);
         &--active {
             display: flex;
         }
@@ -125,7 +126,7 @@
         overflow: hidden;
         max-width: 1132px;
         &-wrapper {
-            margin: clamp(8px, 3vw, 32px) 0;
+            //margin: clamp(8px, 3vw, 32px) 0;
             h4 {
                 margin-bottom: 8px;
                 font-size: clamp(14px, 2vw, 15px);
@@ -172,7 +173,7 @@
         display: flex;
         flex-direction: column;
         gap: 6px;
-        margin-bottom: clamp(16px, 3vw, 32px);
+        //margin-bottom: clamp(16px, 3vw, 32px);
     }
     &__item {
         display: flex;

@@ -143,6 +143,15 @@
         }
         &-bar {
             left: 75px;
+            &.blue {
+                background-color: #f5f8ff;
+            }
+            &.yellow {
+                background-color: #fff6d4;
+            }
+            &.red {
+                background-color: #f5cece;
+            }
         }
     }
     &__info-product-bottom {

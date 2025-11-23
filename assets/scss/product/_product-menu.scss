@@ -1,9 +1,13 @@
 .product-menu {
+    //width: 100vw;
+    left: 0;
+    position: relative;
+    //margin: 0 calc((100vw - 1660px) / -2 - 30px) 5px;
     margin-bottom: 5px;
+    background-color: #fff;
     &__wrapper {
         justify-content: space-between;
         padding-right: 20px;
-        background-color: #fff;
         align-items: flex-end;
     }
     &.fixed {
@@ -13,11 +17,17 @@
         z-index: 100;
         left: 0;
         border-bottom: #E5EEFB 1px solid;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
         .product-menu__list {
             background-color: transparent;
         }
         .product-menu__wrapper {
             background: #f9f9f9;
+        }
+    }
+    &:not(.fixed) {
+        .container {
+            padding: 0;
         }
     }
     &__list {

@@ -335,6 +335,12 @@ button {
   position: relative;
   z-index: 0;
 }
+.tags.prev-disabled:after {
+  display: none;
+}
+.tags.next-disabled:before {
+  display: none;
+}
 .tags-slider .swiper-slide {
   width: auto;
   -ms-flex-negative: 0;
@@ -378,6 +384,19 @@ button {
           transform: translateY(-50%);
   z-index: 9;
 }
+.tags:after {
+  content: "";
+  background: -webkit-gradient(linear, right top, left top, from(rgba(247, 248, 249, 0)), color-stop(73.48%, #F7F8F9));
+  background: linear-gradient(270deg, rgba(247, 248, 249, 0) 0%, #F7F8F9 73.48%);
+  width: 108px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 9;
+}
 .tags svg {
   position: relative;
   z-index: 10;
@@ -392,6 +411,9 @@ button {
 }
 .tags .slider-button-prev {
   left: 0px;
+}
+.tags .swiper-button-disabled {
+  display: none;
 }
 @media (max-width: 768px) {
   .tags:before {
@@ -5847,10 +5869,17 @@ textarea {
   border: none;
   padding-right: 25px;
   padding-left: 4px;
-  padding-top: 2px;
   height: auto;
   line-height: 1;
   color: #16489F;
+}
+.catalog__sort-block .nice-select .current {
+  font-size: 15px;
+}
+@media (max-width: 380px) {
+  .catalog__sort-block .nice-select .current {
+    font-size: 14px;
+  }
 }
 .catalog__sort-block .nice-select::after {
   content: "";
@@ -6733,14 +6762,16 @@ textarea {
 }
 
 .product-menu {
+  left: 0;
+  position: relative;
   margin-bottom: 5px;
+  background-color: #fff;
 }
 .product-menu__wrapper {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-right: 20px;
-  background-color: #fff;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -6752,12 +6783,17 @@ textarea {
   z-index: 100;
   left: 0;
   border-bottom: #E5EEFB 1px solid;
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
 }
 .product-menu.fixed .product-menu__list {
   background-color: transparent;
 }
 .product-menu.fixed .product-menu__wrapper {
   background: #f9f9f9;
+}
+.product-menu:not(.fixed) .container {
+  padding: 0;
 }
 .product-menu__list {
   padding: 17px 20px;
@@ -7038,6 +7074,9 @@ textarea {
 .product__gallery .slider-button-prev {
   left: -15px;
 }
+.product__gallery .swiper-button-disabled {
+  display: none;
+}
 .product__gallery .product-slider .swiper-slide {
   cursor: pointer;
 }
@@ -7242,6 +7281,7 @@ textarea {
 .product__info-title {
   width: calc(100% - 90px);
   font-size: clamp(19px, 2.5vw, 24px);
+  font-weight: 700;
 }
 .product__info-top {
   -webkit-box-pack: justify;
@@ -11215,6 +11255,12 @@ textarea {
 .profile__orders-row-bottom-table-column-item b {
   margin-bottom: 4px;
 }
+.profile__orders .discount__hidden {
+  display: block;
+}
+.profile__orders .discount__hidden.collapsed .profile__orders-row:nth-child(n+3) {
+  display: none;
+}
 @media (max-width: 1366px) {
   .profile__orders-row-top > div {
     padding: 10px;
@@ -12392,6 +12438,7 @@ textarea {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  gap: clamp(20px, 2vw, 30px);
 }
 .delivery__tab-content--active {
   display: -webkit-box;
@@ -12499,9 +12546,6 @@ textarea {
   overflow: hidden;
   max-width: 1132px;
 }
-.delivery__table-wrapper {
-  margin: clamp(8px, 3vw, 32px) 0;
-}
 .delivery__table-wrapper h4 {
   margin-bottom: 8px;
   font-size: clamp(14px, 2vw, 15px);
@@ -12555,7 +12599,6 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 6px;
-  margin-bottom: clamp(16px, 3vw, 32px);
 }
 .delivery__item {
   display: -webkit-box;
@@ -12864,6 +12907,15 @@ textarea {
 }
 .discount .profile__chart-bar {
   left: 75px;
+}
+.discount .profile__chart-bar.blue {
+  background-color: #f5f8ff;
+}
+.discount .profile__chart-bar.yellow {
+  background-color: #fff6d4;
+}
+.discount .profile__chart-bar.red {
+  background-color: #f5cece;
 }
 .discount__info-product-bottom {
   -webkit-box-align: center;

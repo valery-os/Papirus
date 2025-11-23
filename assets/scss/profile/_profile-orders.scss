@@ -206,6 +206,12 @@
             margin-bottom: 4px;
         }
     }
+    .discount__hidden {
+        display: block;
+    }
+    .discount__hidden.collapsed .profile__orders-row:nth-child(n+3) {
+        display: none;
+    }
     @media #{$screen-max} {
         &-row-top {
             &>div {
