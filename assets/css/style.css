@@ -937,6 +937,9 @@ select {
 .header {
   position: relative;
 }
+.header .menu-btn {
+  cursor: pointer;
+}
 .header-cat-menu-overlay {
   position: absolute;
   top: 0;
@@ -1109,6 +1112,7 @@ select {
       -ms-flex-align: center;
           align-items: center;
   height: 48px;
+  background-color: #D8E2EF;
 }
 .header__catalog-btn .close {
   display: none;
@@ -1161,8 +1165,13 @@ select {
           align-items: center;
 }
 .header__bottom-wrapper {
-  background: #fff;
+  background: #16489d;
   position: relative;
+}
+@media ((max-width: 1200px)) {
+  .header__bottom-wrapper {
+    background-color: transparent;
+  }
 }
 .header__bottom-wrapper.fixed {
   position: fixed;
@@ -2309,9 +2318,18 @@ select {
   display: none;
   max-width: 400px;
 }
+.mobile-menu .cat-menu-btn {
+  cursor: pointer;
+}
+.mobile-menu a {
+  -webkit-tap-highlight-color: transparent;
+}
 .mobile-menu.active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+.mobile-menu .container {
+  padding: 0;
 }
 .mobile-menu a {
   font-size: 15px;
@@ -2320,7 +2338,17 @@ select {
 .mobile-menu__top {
   height: 64px;
   background: #F5F8FF;
-  padding: 14px 0;
+  padding: 14px 30px;
+}
+@media (max-width: 992px) {
+  .mobile-menu__top {
+    padding: 14px 20px;
+  }
+}
+@media (max-width: 575px) {
+  .mobile-menu__top {
+    padding: 14px 15px;
+  }
 }
 .mobile-menu__top-wrapp {
   -webkit-box-align: center;
@@ -2342,8 +2370,18 @@ select {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 17px 0;
+  padding: 17px 30px;
   background: #fff;
+}
+@media (max-width: 992px) {
+  .mobile-menu__cat-btn {
+    padding: 17px 20px;
+  }
+}
+@media (max-width: 575px) {
+  .mobile-menu__cat-btn {
+    padding: 17px 15px;
+  }
 }
 .mobile-menu__cat-btn > svg {
   width: 9px;
@@ -2364,17 +2402,54 @@ select {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 33px;
   background: #fff;
   padding: 17px 0;
 }
+.mobile-menu__nav a {
+  display: block;
+  width: 100%;
+  padding: 16px 30px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.mobile-menu__nav a:hover {
+  background-color: #E5EEFB;
+}
+@media (max-width: 992px) {
+  .mobile-menu__nav a {
+    padding: 16px 20px;
+  }
+}
+@media (max-width: 575px) {
+  .mobile-menu__nav a {
+    padding: 16px 15px;
+  }
+}
 .mobile-menu__details {
   padding: 17px 0;
-  gap: 35px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.mobile-menu__details a {
+  width: 100%;
+  padding: 16px 30px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.mobile-menu__details a:hover {
+  background-color: #E5EEFB;
+}
+@media (max-width: 992px) {
+  .mobile-menu__details a {
+    padding: 16px 20px;
+  }
+}
+@media (max-width: 575px) {
+  .mobile-menu__details a {
+    padding: 16px 15px;
+  }
 }
 .mobile-menu__details-item {
   gap: 24px;
@@ -2411,6 +2486,20 @@ select {
 .mobile-menu__lang {
   gap: 16px;
 }
+.mobile-menu__lang-wrapper {
+  padding: 0 30px;
+  margin-top: 16px;
+}
+@media (max-width: 992px) {
+  .mobile-menu__lang-wrapper {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 575px) {
+  .mobile-menu__lang-wrapper {
+    padding: 0 15px;
+  }
+}
 .mobile-menu__lang span {
   height: 16px;
   width: 1px;
@@ -2418,8 +2507,14 @@ select {
 }
 .mobile-menu__lang a {
   color: #8996A7;
+  padding: 0;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 .mobile-menu__lang a.current {
+  color: #16489F;
+}
+.mobile-menu__lang a:hover {
   color: #16489F;
 }
 .mobile-menu__hamburger {
@@ -2476,6 +2571,9 @@ select {
   display: none;
   max-width: 400px;
 }
+.catalog-menu .cat-menu-btn {
+  cursor: pointer;
+}
 .catalog-menu.active {
   -webkit-transform: translateX(0);
           transform: translateX(0);
@@ -2493,12 +2591,12 @@ select {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 33px;
   width: 100%;
   padding: 17px 0;
 }
 .catalog-menu__list a {
   font-size: 14px;
+  padding: 16px 30px;
   color: #111111;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -2506,12 +2604,27 @@ select {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+@media (max-width: 992px) {
+  .catalog-menu__list a {
+    padding: 16px 20px;
+  }
+}
+@media (max-width: 575px) {
+  .catalog-menu__list a {
+    padding: 16px 15px;
+  }
 }
 .catalog-menu__list a > div {
   gap: 24px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.catalog-menu__list a:hover {
+  background: #E5EEFB;
 }
 .catalog-menu__list img {
   width: 24px;
@@ -2567,7 +2680,7 @@ select {
   width: 100%;
   font-size: 14px;
   color: rgba(17, 17, 17, 0.6509803922);
-  padding: 13px 50px;
+  padding: 13px 30px;
 }
 .catalog-menu__cats-block h4 {
   font-weight: 400;
@@ -2589,6 +2702,16 @@ select {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
+.catalog-menu__cats-block h4 a {
+  padding: 0;
+}
+.catalog-menu__cats-block h4 a:hover {
+  background: none;
+}
+.catalog-menu__cats-block h4 a a:focus {
+  color: inherit !important;
+  outline: none; /* если не нужен контур */
+}
 .catalog-menu__cats-block h4.active {
   background: #F7F8F9;
   color: #16489F;
@@ -2607,6 +2730,7 @@ select {
   .catalog-menu .container {
     max-height: calc(100vh - 64px);
     overflow-y: auto;
+    padding: 0;
   }
 }
 
@@ -4825,6 +4949,15 @@ textarea {
   }
 }
 
+.offer:not(.empty-cat).active .offer__cats:before {
+  content: "";
+  width: 30px;
+  height: 100%;
+  background-color: #E5EEFB;
+  position: absolute;
+  left: 300px;
+}
+
 .offer__cats-menu {
   width: 100%;
   height: 100vh;
@@ -4848,7 +4981,7 @@ textarea {
   position: relative;
   padding: 0;
   max-width: 1600px;
-  background: #fff;
+  background: #E5EEFB;
 }
 .offer__cats-menu .container.empty-cat {
   padding: 0;
@@ -4905,7 +5038,7 @@ textarea {
   position: absolute;
   top: 0;
   right: 0;
-  background: #fff;
+  background: #E5EEFB;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

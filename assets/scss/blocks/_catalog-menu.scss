@@ -10,6 +10,9 @@
     transition: .3s ease;
     display: none;
     max-width: 400px;
+    .cat-menu-btn {
+        cursor: pointer;
+    }
     &.active {
         transform: translateX(0);
     }
@@ -21,18 +24,27 @@
     }
     &__list {
         flex-direction: column;
-        gap: 33px;
         width: 100%;
         padding: 17px 0;
         a {
             font-size: 14px;
-
+            padding: 16px 30px;
             color: $textColor;
             align-items: center;
             justify-content: space-between;
+            transition: .3s ease;
+            @media #{$laptop-max} {
+                padding: 16px 20px;
+            }
+            @media #{$mobile-max} {
+                padding: 16px 15px;
+            }
             &>div {
                 gap: 24px;
                 align-items: center;
+            }
+            &:hover {
+                background: #E5EEFB;
             }
         }
         img {
@@ -71,7 +83,7 @@
                 width: 100%;
                 font-size: 14px;
                 color: #111111A6;
-                padding: 13px 50px;
+                padding: 13px 30px;
             }
         }
         h4 {
@@ -85,6 +97,16 @@
             padding: 17px 30px 16px;
             svg {
                 transition: .3s ease;
+            }
+            a {
+                padding: 0;
+                &:hover {
+                    background: none;
+                }
+                a:focus {
+                    color: inherit !important;
+                    outline: none; /* если не нужен контур */
+                }
             }
             &.active {
                 background: #F7F8F9;
@@ -104,6 +126,7 @@
         .container {
             max-height: calc(100vh - 64px);
             overflow-y: auto;
+            padding: 0;
         }
     }
 }

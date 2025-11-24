@@ -283,7 +283,25 @@
     }
 }
 
+.offer {
+    &:not(.empty-cat).active {
+        .offer__cats {
+            //position: relative;
+            &:before {
+                content: '';
+                width: 30px;
+                height: 100%;
+                background-color: #E5EEFB;
+                position: absolute;
+                left: 300px;
+            }
+        }
+    }
+
+}
+
 .offer__cats {
+
     &-menu {
         width: 100%;
         height: 100vh;
@@ -305,7 +323,7 @@
             position: relative;
             padding: 0;
             max-width: 1600px;
-            background: #fff;
+            background: #E5EEFB;
             &.empty-cat {
                 padding: 0;
                 max-width: fit-content;
@@ -363,7 +381,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        background: #fff;
+        background: #E5EEFB;
         display: flex;
         flex-direction: column;
         max-height: 100%;
@@ -371,6 +389,7 @@
         overflow: auto;
         justify-content: space-between;
         padding-top: 11px;
+
         &-links {
             display: grid;
             grid-template-columns: repeat(3, 1fr);

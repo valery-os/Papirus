@@ -10,9 +10,19 @@
     transition: .3s ease;
     display: none;
     max-width: 400px;
+    .cat-menu-btn {
+        cursor: pointer;
+    }
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
     &.active {
         transform: translateX(0);
     }
+    .container {
+        padding: 0;
+    }
+
     a {
         font-size: 15px;
         color: $textColor;
@@ -20,7 +30,13 @@
     &__top {
         height: 64px;
         background: #F5F8FF;
-        padding: 14px 0;
+        padding: 14px 30px;
+        @media #{$laptop-max} {
+            padding: 14px 20px;
+        }
+        @media #{$mobile-max} {
+            padding: 14px 15px;
+        }
         &-wrapp {
             align-items: center;
             justify-content: space-between;
@@ -36,8 +52,14 @@
     &__cat-btn {
         align-items: center;
         justify-content: space-between;
-        padding: 17px 0;
+        padding: 17px 30px;
         background: #fff;
+        @media #{$laptop-max} {
+            padding: 17px 20px;
+        }
+        @media #{$mobile-max} {
+            padding: 17px 15px;
+        }
         &>svg {
             width: 9px;
             height: 15px;
@@ -52,19 +74,44 @@
     .container-cat-btn {
         border-bottom: 4px solid #F5F8FF;
     }
+
     &__nav {
         flex-direction: column;
-        gap: 33px;
         background: #fff;
         padding: 17px 0;
         a {
-
+            display: block;
+            width: 100%;
+            padding: 16px 30px;
+            transition: .3s ease;
+            &:hover {
+                background-color: #E5EEFB;
+            }
+            @media #{$laptop-max} {
+                padding: 16px 20px;
+            }
+            @media #{$mobile-max} {
+                padding: 16px 15px;
+            }
         }
     }
     &__details {
         padding: 17px 0;
-        gap: 35px;
         flex-direction: column;
+        a {
+            width: 100%;
+            padding: 16px 30px;
+            transition: .3s ease;
+            &:hover {
+                background-color: #E5EEFB;
+            }
+            @media #{$laptop-max} {
+                padding: 16px 20px;
+            }
+            @media #{$mobile-max} {
+                padding: 16px 15px;
+            }
+        }
     }
     &__details-item {
         gap: 24px;
@@ -92,6 +139,16 @@
     }
     &__lang {
         gap: 16px;
+        &-wrapper {
+            padding: 0 30px;
+            margin-top: 16px;
+            @media #{$laptop-max} {
+                padding: 0 20px;
+            }
+            @media #{$mobile-max} {
+                padding: 0 15px;
+            }
+        }
         span {
             height: 16px;
             width: 1px;
@@ -99,7 +156,12 @@
         }
         a {
             color: #8996A7;
+            padding: 0;
+            transition: .3s ease;
             &.current {
+                color: $textBlue;
+            }
+            &:hover {
                 color: $textBlue;
             }
         }
