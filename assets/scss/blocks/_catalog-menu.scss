@@ -95,6 +95,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 17px 30px 16px;
+            cursor: pointer;
+            transition: .3s ease;
             svg {
                 transition: .3s ease;
             }
@@ -107,6 +109,9 @@
                     color: inherit !important;
                     outline: none; /* если не нужен контур */
                 }
+            }
+            &:hover {
+                background: #E5EEFB;
             }
             &.active {
                 background: #F7F8F9;

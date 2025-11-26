@@ -1159,7 +1159,7 @@ select {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 10px 0 11px;
+  padding: 11px 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1307,7 +1307,7 @@ select {
   text-decoration-style: dotted;
   text-decoration-thickness: 2px;
   text-underline-offset: 18%;
-  color: #16489F;
+  color: #fff;
 }
 .header__actions-btn-profile .header__actions-btn:hover {
   -webkit-transform: none;
@@ -1329,7 +1329,7 @@ select {
   padding: 1px 8px 0;
   height: 19px;
   white-space: nowrap;
-  top: -10px;
+  top: -6px;
 }
 .header__actions-btn-cart {
   background: #FFD603 !important;
@@ -2372,6 +2372,8 @@ select {
           justify-content: space-between;
   padding: 17px 30px;
   background: #fff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 @media (max-width: 992px) {
   .mobile-menu__cat-btn {
@@ -2392,6 +2394,9 @@ select {
       -ms-flex-align: center;
           align-items: center;
   gap: 24px;
+}
+.mobile-menu__cat-btn:hover {
+  background-color: #E5EEFB;
 }
 .mobile-menu .container-navigation,
 .mobile-menu .container-cat-btn {
@@ -2697,6 +2702,9 @@ select {
       -ms-flex-align: center;
           align-items: center;
   padding: 17px 30px 16px;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 .catalog-menu__cats-block h4 svg {
   -webkit-transition: 0.3s ease;
@@ -2711,6 +2719,9 @@ select {
 .catalog-menu__cats-block h4 a a:focus {
   color: inherit !important;
   outline: none; /* если не нужен контур */
+}
+.catalog-menu__cats-block h4:hover {
+  background: #E5EEFB;
 }
 .catalog-menu__cats-block h4.active {
   background: #F7F8F9;

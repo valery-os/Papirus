@@ -54,6 +54,7 @@
         justify-content: space-between;
         padding: 17px 30px;
         background: #fff;
+        transition: .3s ease;
         @media #{$laptop-max} {
             padding: 17px 20px;
         }
@@ -67,7 +68,9 @@
         &-title {
             align-items: center;
             gap: 24px;
-
+        }
+        &:hover {
+            background-color: #E5EEFB;
         }
     }
     .container-navigation,
