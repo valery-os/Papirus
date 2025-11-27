@@ -2718,7 +2718,7 @@ select {
 }
 .catalog-menu__cats-block h4 a a:focus {
   color: inherit !important;
-  outline: none; /* если не нужен контур */
+  outline: none;
 }
 .catalog-menu__cats-block h4:hover {
   background: #E5EEFB;
@@ -6609,7 +6609,7 @@ textarea {
   transition: 0.3s ease;
 }
 .filter__checkbox-count {
-  margin-left: 7px;
+  margin-left: 3px;
   font-size: 13px;
   color: #8996A7;
   -webkit-transition: 0.3s ease;
