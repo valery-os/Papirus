@@ -908,13 +908,15 @@ jQuery(function ($) {
         const $btn = $('.header__catalog-btn');
         let $header_height = $('.header').outerHeight();
 
-        $btn.on('click', function (e) {
+        $(document).on('click', $btn, function (e) {
             e.preventDefault();
             $menu.fadeToggle();
             $('.header-cat-menu-overlay').fadeToggle();
             $('.offer__cats-list').css('max-height', `calc(100vh - ${$header_height}px)`);
             $('html').toggleClass('overflow');
             $btn.toggleClass('active');
+            console.log(111111)
+            checkCatsListHeight();
         });
 
         $(window).on('resize', function () {
@@ -1623,6 +1625,21 @@ jQuery(function ($) {
             });
         });
     }
+
+    function checkCatsListHeight() {
+        console.log(113423)
+        var screenH = $(window).height();
+        var headerH = $('.header').outerHeight(true);
+        var listH = $('.header__bottom-wrapper .offer__cats').outerHeight(true);
+
+        var result = screenH - headerH - listH;
+        if (result > 0) {
+            $('.offer__cats-list-button-more').css('display', 'none');
+        } else {
+            $('.offer__cats-list-button-more').css('display', '');
+        }
+    }
+
 
     $('.btn-product-buy').on('click', function () {
         showAddedTooltip(this);
