@@ -851,7 +851,6 @@ jQuery(function ($) {
 
         $('.offer__cats-menu .offer__cats-list > li')
             .on('mouseenter', function (e) {
-                console.log('hover');
                 e.preventDefault();
                 $('.offer__cats-menu .offer__cats-list > li').not(this).removeClass('active');
                 $(this).addClass('active');
@@ -915,7 +914,6 @@ jQuery(function ($) {
             $('.offer__cats-list').css('max-height', `calc(100vh - ${$header_height}px)`);
             $('html').toggleClass('overflow');
             $btn.toggleClass('active');
-            console.log(111111)
             checkCatsListHeight();
         });
 
@@ -960,7 +958,6 @@ jQuery(function ($) {
                 $(this).addClass('active');
                 if ($(this).find('.offer__cats-submenu').length === 0) {
                     $(this).closest('.offer').addClass('empty-cat');
-                    console.log(3333)
                 } else {
                     $(this).closest('.offer').removeClass('empty-cat');
                 }
@@ -1555,7 +1552,6 @@ jQuery(function ($) {
 
     function changeImageColor() {
         $('.color-option').on('click', function () {
-            console.log(333)
             const newImage = $(this).data('image');
             const $productCard = $(this).closest('.product-card');
             const $mainImage = $productCard.find('.image-color img');
@@ -1627,7 +1623,6 @@ jQuery(function ($) {
     }
 
     function checkCatsListHeight() {
-        console.log(113423)
         var screenH = $(window).height();
         var headerH = $('.header').outerHeight(true);
         var listH = $('.header__bottom-wrapper .offer__cats').outerHeight(true);
