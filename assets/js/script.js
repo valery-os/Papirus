@@ -1625,7 +1625,7 @@ jQuery(function ($) {
     function checkCatsListHeight() {
         var screenH = $(window).height();
         var headerH = $('.header').outerHeight(true);
-        var listH = $('.header__bottom-wrapper .offer__cats').outerHeight(true);
+        var listH = $('.header__bottom-wrapper .offer__cats-list>li').outerHeight(true) * $('.header__bottom-wrapper .offer__cats-list>li').length;
 
         var result = screenH - headerH - listH;
         if (result > 0) {
